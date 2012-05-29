@@ -1,0 +1,8 @@
+\section{Discusión}
+
+Se puede observar en el gráfico 1.1 cómo una cantidad mayor de términos causa que la curva se solape casi por completo con la curva teórica, eso significa que cuando aumenta el $n$ la aproximación es mucho mejor, ya con 7 términos las curvas son indistinguibles para $ 0 \geq x \geq 3.14$, y aún con una cantidad de términos menor, por ejemplo 5, la aproximación es suficientemente buena en el centro, y sólo diverge notoriamente en los extremos de la curva.
+
+De la misma manera, en el gráfico 1.2, se puede observar el comportamiento de la función con una cantidad de términos que consideramos suficientemente preciso, podemos ver que mientras cerca del 0 las funciones son idénticas, existe un punto de quiebre desde donde divergen, es más, $f(x)$ toma valores $<$ -1, lo que es imposible en una función coseno. Analizando más profundamente, ese punto de quiebre se produce entre el 8 y el 8.5, este es el valor para el cual $x^{2i} > 2i!$ para i = 10, por lo tanto, la función empieza a diverger en ese punto. Obviamente, cuanto más grande sea el $n$, este punto se hallará más lejos del 0, pero al ser finito, irremediablemente existirá, por lo tanto, la aproximación divergirá tarde o temprano.
+
+
+Por otro lado, analizando el gráfico 2.1, podemos ver cómo la curva con 2 dígitos de mantisa es totalmente diferente a la curva teórica, pero sucesivas mejoras de la longitud la aproximan mejor, ya con 7 dígitos el error es, si bien significativo, bastante menor, y con 12 dígitos y más se hace casi imposible distinguir la curva teórica de la empírica

@@ -1,0 +1,163 @@
+\section{Apéndices}
+
+\subsection{Apéndice A}
+
+Muchas funciones, por ejemplo trigonométricas o trascendentes, se pueden aproximar por medio de
+series. Un ejemplo de esto es la serie de Maclaurin (la serie de Taylor alrededor del cero) de la función coseno:
+
+\begin{center}
+$\displaystyle f(x) = cos x = \sum_{i=0}^{\infty} \frac{(-1)^i}{(2i)!} x^{2i} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + ...  \forall x \in \mathds{R}$
+\end{center}
+
+En la práctica estas series se reemplazan por sumatorias con una cantidad finita de términos, por
+ejemplo:
+
+\begin{equation}
+\displaystyle g_n(x) = \sum_{i=0}^n \frac{(-1)^i}{(2i)!} x^{2i} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + ...  
+\end{equation}
+
+A diferencia de la primera ecuacion $g_n$ tiene $n+1$ terminos en total.
+
+Cuando la cantidad de términos n utilizados en el cálculo es sufientemente grande, la función $g_n(x)$
+se parece a la función $f(x)$, es decir:
+
+\begin{center}
+$\displaystyle g_n(x) \xrightarrow[n\rightarrow{}\infty]\,{f(x)}$ 
+\end{center}
+
+El objetivo del trabajo práctico es analizar el comportamiento numérico de la serie de Maclaurin de
+la función coseno. En particular, se estudiará la implementación por medio de una aritmética finita
+de $t$ dígitos, de la sumatoria de $n$ términos de la serie (ecuación 1).\\
+
+El trabajo práctico consta de dos partes:\\
+
+\subsubsection*{1. Análisis teórico}
+
+\hspace{0.5cm}a) Analizar el error cometido en función de x, al reemplazar la serie por la sumatoria según
+la cantidad de términos $n$ y hallar una cota para el mismo.
+b) Analizar la propagación de errores en el término general de la sumatoria, en función de la
+precisión aritmética utilizada.
+
+\subsubsection*{2. Análisis empírico}
+
+\hspace{0.5cm}a) Implementar el cálculo de la sumatoria en precisión nativa del compilador y comparar el
+resultado en función de $x$, obtenido para diferente cantidad de términos $n$, con el valor
+dado por la función coseno de la biblioteca math.h. Comparar los errores obtenidos con las
+cotas del punto 1a.\\
+
+b) Implementar el cálculo de la sumatoria con aritmética binaria de punto 
+flotante con $t$ dígitos
+de precisión en la mantisa (el valor $t$ debe ser un parámetro de la implementación, $t < 52$)
+y comparar los errores con las cotas de error del punto 1b.
+Realizar al menos los siguientes experimentos numéricos:\\
+
+\noindent 1. Reportar/Graficar el error de considerar la sumatoria con cantidad finita de términos,\\
+
+a) en función de la variable $x$, para algunos valores fijos de la cantidad de términos $n$ (al
+menos 5);\\
+
+b) en función de la cantidad de términos $n$, para algunos valores fijos de $x$ (al menos 5).\\
+
+\noindent 2. Reportar/Graficar el error de la propagación de errores debidos al uso de la aritmética finita,\\
+
+a) en función de la variable $x$, para algunos valores fijos de la cantidad de dígitos $t$ de precisión
+y de la cantidad de términos $n$ de la sumatoria (al menos 3 de cada uno);\\
+
+b) en función de la cantidad de dígitos t de precisión en la mantisa, para algunos valores fijos
+de $x$ y de la cantidad de términos $n$ (al menos 3 de cada uno);\\
+
+c) en función de la cantidad de términos $n$, para algunos valores fijos de $x$ y de la cantidad de
+dígitos t de precisión (al menos 3 de cada uno).\\
+
+\noindent 3. Comparar los resultados obtenidos teórica y empíricamente.\\
+
+\noindent 4. (Opcional) Explorar distintas formas de implementar la fórmula (realizar las cuentas) del método.\\
+
+Se deben presentar los resultados de estas pruebas en un formato conveniente para su visualización y
+análisis. Sobre la base de los resultados obtenidos, qué conclusiones puede extraer?
+
+\subsection{Apéndice B}
+
+\subsubsection{Código fuente de la serie de McLaurin}
+
+Incluimos a continuación el código (simplificado) relevante de las funciones usadas para calcular la serie de McLaurin para $\cos (x)$
+
+\begin{verbatim}
+	
+    int terms;
+    double x;
+    bool signo = true;
+    double acum = 0;
+	
+    cin >> terms >> x;
+			
+    for (int i = 0; i < terms; i++){
+        if (signo){
+            acum +=  (potencia (x, (2*i)) / (factorial (2*i)));
+        }else{
+            acum -=  (potencia (x, (2*i)) / (factorial (2*i)));
+        }
+        signo = !signo;
+        cout << acum << endl;
+    }
+	
+double factorial (int x){
+	
+    double res = 1;
+	
+    for (int i = 1; i<=x; i++){
+        res *= i;
+    }	
+	
+    return res;
+}
+
+double potencia(double num, int exp){
+	
+    double res = 1;
+
+    for (int i = 0; i < exp; i++){
+        res *= num;
+    }
+    
+    return res;
+}
+	
+\end{verbatim}
+
+\subsubsection{Código fuente de la máscara}
+
+Incluimos a continuación el código relevante de la inicialización de la máscara y del filtrado por medio de la misma de un double
+
+\begin{verbatim}
+#define MAX_MANTISA 52
+
+
+    int mantisa_size = atoi(argv[3]);	
+    unsigned int cantshifts = MAX_MANTISA - mantisa_size;
+    upper = 0xFFFFFFFF;
+    lower = 0xFFFFFFFF;
+		
+    if (cantshifts > 32){
+        for (unsigned int i = 0; i < max (cantshifts - 32, (unsigned int)0); i++){
+            upper = upper << 1;
+        }
+    }
+	
+    for(unsigned int i = 0; i < min ((unsigned int)32, cantshifts); i++){
+        lower = lower << 1;
+    }
+    
+    
+double domask (double x){
+	
+    int* b = (int*) &x;
+		
+    *b = *b & lower;
+    *(b+1) = *(b+1) & upper;
+	
+    return *((double *) b);
+}
+
+    
+\end{verbatim}

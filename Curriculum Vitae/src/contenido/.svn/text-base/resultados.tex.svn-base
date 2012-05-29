@@ -1,0 +1,29 @@
+\section{Resultados}
+
+\subsection{Análisis con cantidad de términos variable variable}
+
+
+\begin{center}
+	\includegraphics[scale=0.35,angle=90]{../img/2aglobal.jpg} \\
+ 	\scriptsize{\textsf{\textbf{Gr\'afico 1.1, comparación del comportamiento de $f(x)$ para diferentes cantidades de términos de la serie, comparado con la curva $\cos (x)$}}}
+ 	
+\end{center}
+
+\begin{center}
+
+	\includegraphics[scale=0.35,angle=90]{../img/2afijo.jpg} \\
+ 	\scriptsize{\textsf{\textbf{Gr\'afico 1.2, comparación de $f(x)$ con un número de términos fijo = 10 contra la curva $\cos (x)$, para un rango mayor de números}}}
+ 	
+\end{center}
+
+\subsection{Análisis con dígitos de mantisa variable}
+
+Tal como dijimos, tomamos las mediciones para diferentes mantisas con valores de $x$ de 0 a 3.14, con las tablas obteniadas, seleccionando algunas de las curvas más significativas, obtuvimos el siguiente gráfico, donde representamos el resultado de aplicar nuestra $f(x)$ en función de $x$, y además comparado con el resultado empírico de $\cos x$
+
+\begin{center}
+	
+	\includegraphics[scale=0.35,angle=90]{../img/2bt10.jpg} \\
+ 	\scriptsize{\textsf{\textbf{Gr\'afico 2.1, comparación del comportamiento de $f(x)$ para diferentes longitudes de mantisa, con una cantidad de términos fija = 10}}}
+ 	
+\end{center}
+	
