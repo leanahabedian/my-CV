@@ -1,0 +1,265 @@
+\section{Desarrollo}
+
+\subsection{Análisis Teórico}
+
+\subsubsection{Análisis sobre la finitud de los términos}
+
+Nuestro análisis se centro en los errores causados por aproximar la función coseno con la serie de McLaurin, primero nos centramos en el error cometido en función de $x$, al reemplazar la serie por la sumatoria según la cantidad de términos $n$ y hallar una cota para el mismo.
+
+Analizando la serie de McLaurin para el coseno, notamos que el resultado obtenido va a depender de dos parámetros, como ser el valor para el que vamos a aplicar la serie y la cantidad de términos que vamos a usar para evaluar la serie y llegar a la aproximación del resultado del coseno para dicha entrada.
+
+Observando el comportamiento de la serie, notamos que se alternan términos positivos y negativos. Esto significa que cada término de la serie se “pasa” del valor real, ya sea por arriba o por abajo, y cada término subsiguiente que se agrega contribuye a hacer que se “pase” en un valor absoluto menor, por lo tanto, con cada término conseguimos que el resultado obtenido esté más cerca del real.
+
+Esto nos lleva a analizar el error cometido por la aproximación, algo inevitable considerando que estamos limitando una serie infinita a una cantidad finita de términos.
+
+El error de la serie es, obviamente, la sumatoria del resto de los términos que no sumamos en la serie, o sea, si la serie tiene $n$ términos, o sea, si la función es la sumatoria
+
+
+\begin{equation*}
+a = \sum_{i=1}^{n-1} \frac{(-1)^i}{(2i)!} x^{2i}
+\end{equation*}
+
+El error de esa cuenta entonces es la sumatoria desde $n$ hasta $\infty$, o sea
+
+\begin{equation*}
+\varepsilon_{f_n} = \sum_{i=n}^{\infty}  \frac{(-1)^i}{(2i)!} x^{2i}
+\end{equation*}
+
+Ahora bien, cómo podemos estimar ese error? Tomando lo que dijimos antes, sabemos que cada término subsiguiente de la serie hace que el error en valor absoluto sea menor, porque el próximo término se "pasa" del valor real de $cos (x)$, si llamamos $\varepsilon_$ al error de estimar $a$ para un $n$ dado, sabemos que 
+$\varepsilon_{f_n} \leq |a - \cos x|$ y entonces el próximo término ($t_n)$ es mayor en valor absoluto que el error $\varepsilon_$, porque $a + t_n > cos (x)$ si $n$ es par y  $a - t_n < cos (x)$ si $n$ es impar. 
+
+O sea, el error  de estimar la serie con $n$ términos es siempre menor en valor absoluto al valor del término siguiente, por lo tanto, podemos dar una cota para el error causado por acotar la función, y este resulta
+
+\begin{equation*}
+\varepsilon_{f_n} < \ |t_n|
+\end{equation*}
+\\
+
+Este es el error que sale de acotar la cantidad de términos, pero también existe otro error y es el que sale del hecho que las máquinas no tengan memoria infinita, por lo tanto, cada valor que sea periódico o irracional debe ser redondeado o truncado para tener una cantidad de decimales finitos, o sea, acotarlo con una precisión aritmética dada
+
+\subsubsection{Análisis de la sumatoria}
+
+\noindent Luego de esto vamos a analizar la propagación de errores en el término general de la sumatoria, en función de la precisión aritmética utilizada.
+
+Para analizar la propagacion del error voy a tener que calcular $\varepsilon_g_n$. Por como esta
+compuesto $g_n$ digo que:
+
+\begin{center}
+$\varepsilon_{g_n} = \varepsilon (...(((t_1 + t_2) + t_3) + t_4) ... t_n)$
+\end{center}
+
+como el cálculo de la propagación del error para la suma es:
+
+\begin{center}
+$y = f(a,b) = a + b$\\
+$|\varepsilon_y| \leq \frac{|a|}{|a+b|} * |\varepsilon_a| + \frac{|b|}{|a+b|} * |\varepsilon_b| +
+|\varepsilon_+|$
+\end{center}
+
+Entonces, en la sumatoria la cota del error del primer paréntesis es:
+
+\begin{center}
+$|\varepsilon_{t_1+t_2}| \leq \frac{|t_1|}{|t_1+t_2|} * |\varepsilon_{t_1}| +
+\frac{|t_2|}{|t_1+t_2|} * |\epsilon_{t_2}| + |\varepsilon_+|$
+\end{center}
+
+La cota del error del segundo paréntesis es:
+
+\begin{center}
+$|\varepsilon_{t_1+t_2+t_3}| \leq \frac{|t_1+t_2|}{|t_1+t_2+t_3|} * |\varepsilon_{t_1+t_2}| +
+\frac{|t_3|}{|t_1+t_2_+t_3|} * |\varepsilon_{t_3}| + |\varepsilon_+| $\\
+$|\varepsilon_{t_1+t_2+t_3}| \leq \frac{|t_1+t_2|}{|t_1+t_2+t_3|} *( \frac{|t_1|}{|t_1+t_2|} * |\varepsilon_{t_1}| +
+\frac{|t_2|}{|t_1+t_2|} * |\varepsilon_{t_2}| + |\varepsilon_+|) +
+\frac{|t_3|}{|t_1+t_2_+t_3|} * |\varepsilon_{t_3}| + |\varepsilon_+| $
+\end{center}
+
+Si distribuimos la multiplicacion nos queda:
+
+\begin{center}
+$|\varepsilon_{t_1+t_2+t_3}| \leq \frac{|t_1+t_2|}{|t_1+t_2+t_3|} * \frac{|t_1|}{|t_1+t_2|} * |\varepsilon_{t_1}| + \frac{|t_1+t_2|}{|t_1+t_2+t_3|}
+\frac{|t_2|}{|t_1+t_2|} * |\epsilon_{t_2}| + \frac{|t_1+t_2|}{|t_1+t_2+t_3|} |\varepsilon_+| +
+\frac{|t_3|}{|t_1+t_2_+t_3|} * |\varepsilon_{t_3}| + |\varepsilon_+|$ \\
+$|\varepsilon_{t_1+t_2+t_3}| \leq \frac{|t_1|}{|t_1+t_2+t_3|} * |\varepsilon_{t_1}| + \frac{|t_2|}{|t_1+t_2+t_3|} * |\varepsilon_{t_2}| + \frac{|t_3|}{|t_1+t_2_+t_3|} * |\varepsilon_{t_3}| +
+(\frac{|t_1+t_2|}{|t_1+t_2+t_3|} + 1) * |\varepsilon_+|$
+\end{center}
+
+Veamos un caso mas:
+\begin{center}
+$|\varepsilon_{t_1+t_2+t_3+t_4}| \leq \frac{|t_1+t_2+t_3|}{|t_1+t_2+t_3+t_4|} * 
+|\varepsilon_{t_1+t_2+t_3}| + \frac{|t_4|}{|t_1+t_2+t_3+t_4|} * |\varepsilon_{t_4}| + 
+|\varepsilon_+| \leq $\\
+$\frac{|t_1+t_2+t_3|}{|t_1+t_2+t_3+t_4|} * ( 
+\frac{|t_1|}{|t_1+t_2+t_3|} * |\varepsilon_{t_1}| + \frac{|t_2|}{|t_1+t_2+t_3|} * |\varepsilon_{t_2}| + \frac{|t_3|}{|t_1+t_2_+t_3|} * |\varepsilon_{t_3}| +
+(\frac{|t_1+t_2|}{|t_1+t_2+t_3|} + 1) * |\varepsilon_+|) + \frac{|t_4|}{|t_1+t_2+t_3+t_4|} * |\varepsilon_{t_4}| + 
+|\varepsilon_+| = $\\
+$= \frac{|t_1|}{|t_1+t_2+t_3+t_4|} * |\varepsilon_{t_1}| + \frac{|t_2|}{|t_1+t_2+t_3+t_4|} * |\varepsilon_{t_2}| + \frac{|t_3|}{|t_1+t_2_+t_3+t_4|} * |\varepsilon_{t_3}| + \frac{|t_4|}{|t_1+t_2+t_3+t_4|} * |\varepsilon_{t_4}| +$\\
+$(\frac{|t_1+t_2|}{|t_1+t_2+t_3+t_4|} + \frac{|t_1+t_2+t_3|}{|t_1+t_2+t_3+t_4|} + 1) * 
+|\varepsilon_+|$
+
+\end{center}
+
+Luego, podemos escribir esto generalizando este concepto obteniendo la formula de la propagación
+del error de $g_n$:
+
+\begin{center}
+$|\varepsilon_{g_n}| \leq \frac{|t_1+t_2+...+t_{n-1}|}{|t_1+t_2+...+t_n|} *
+|\varepsilon_{t_1+t_2...t_{n-1}}| +
+\frac{|t_n|}{|t_1+t_2_+...t_n|} * |\varepsilon_{t_n}| + |\varepsilon_+|$
+\end{center}
+
+y si reemplazo $|\varepsilon_{t_1+t_2...t_{n-1}}|$ obtendre la formula cerrada de la pinta de lo que venia formandose en $|\varepsilon_{t_1+t_2+t_3+t_4}|$:
+
+\begin{center}
+$\displaystyle(\sum_{i=1}^n |\varepsilon_{t_i}| * \frac{|t_i|}{|t_1+...+t_n|})
+ + |\varepsilon_+| * (1+ \frac{1}{|t_1+...+t_n|} * \sum_{i=2}^n |t_1+...+t_i| )$
+\end{center}
+
+Notar que para facilitar la escritura del producto que esta multiplicando a $|\varepsilon_+|$
+coloque $1 +$ y luego saque $\frac{1}{|t_1+...+t_n|}$ como factor comun para poder tener la
+sumatoria mas legible.\\
+
+\subsubsection{Cálculo del término $t_i$}
+
+Luego de finalizar la escritura de la sumatoria pasemos entonces a hallar la propagación del error de $\varepsilon_t_i$
+
+Veamos que $t_i = \frac{x^{2i}}{(2i)!}$
+
+Como el cálculo de la propagación del error para la division es:
+
+\begin{center}
+$y = f(a,b) = \frac{a}{b}$\\
+$|\varepsilon_y| \leq |\varepsilon_a| + |\varepsilon_b| + |\varepsilon_\div|$
+\end{center}
+
+Entonces obtenemos que:
+\begin{center}
+$|\varepsilon_{t_i}| = \varepsilon_{x^{2i}} + \varepsilon_{(2i)!} + |\varepsilon_\div|$
+\end{center}
+
+Ahora veamos que pasa en 1) $\varepsilon_{x^{2i}}$ y que pasa en 2) $\varepsilon_{(2i)!}$
+
+1)
+Sea
+\begin{center}
+$x^{2i} = (...((x * x) * x) $... $*x)$ \\
+\end{center}
+Separo los terminos $a = (x * x)$ , $b = ((x * x) * x)$ ...
+
+Entonces y usando que el error de propagación del producto es:
+
+\begin{center}
+$y = f(a,b) = a*b$\\
+$|\varepsilon_y| \leq |\varepsilon_a| + |\varepsilon_b| + |\varepsilon_*|$
+\end{center}
+
+Decimos que:
+
+\begin{center}
+$|\varepsilon_a| \leq |\varepsilon_x| + |\varepsilon_x| + |\varepsilon_*|$\\
+$|\varepsilon_a| \leq 2 *|\varepsilon_x| + |\varepsilon_*|$
+\end{center}
+
+Luego
+
+\begin{center}
+$|\varepsilon_b| \leq |\varepsilon_a| + |\varepsilon_x| + |\varepsilon_*|$\\
+$|\varepsilon_b| \leq 3 |\varepsilon_x| + 2 |\varepsilon_*|$
+\end{center}
+
+Si extendemos esta idea llegamos a que:
+
+\begin{center}
+$|\varepsilon_{x^{2i}}| \leq 2i |\varepsilon_x| + (2i - 1) |\varepsilon_*|$
+\end{center}
+
+2)
+Ahora Sea $y_i = f(i) = (2i)!$
+\begin{center}
+$\varepsilon_{y_1} = \varepsilon_2$\\
+$|\varepsilon_{y_2}| \leq |\varepsilon_2| + |\varepsilon_4| + |\varepsilon_*|$\\
+$|\varepsilon_{y_3}| \leq |\varepsilon_{y_2}| + |\varepsilon_6| +  |\varepsilon_*|$\\
+\end{center}
+
+Siguiendo asi:
+\begin{center}
+$|\varepsilon_{y_i}| \leq |\varepsilon_{y_i-1}| + |\varepsilon_{2i-1}| + |\varepsilon_*|$\\
+$|\varepsilon_{y_i}| \leq |\varepsilon_{2i}| + |\varepsilon_{2i-1}| + $... $+ |\varepsilon_2| + i
+|\varepsilon_*|$\\
+$|\varepsilon_{y_i}| \leq i |\varepsilon_j| + (i-1) |\varepsilon_*|$ donde $j \in \mathds{N}$  \\
+\end{center}
+
+Finalmente teniendo las dos formulas generales, reemplazo:
+\begin{center}
+$|\varepsilon_{t_i}| = |\varepsilon_{x^2i}| + |\varepsilon_{(2i)!}| + |\varepsilon_{\div}|$\\
+$|\varepsilon_{t_i}| \leq 2i |\varepsilon_x| + (2i - 1) |\varepsilon_*| + i |\varepsilon_j| + (i-1)
+|\varepsilon_*| + |\varepsilon_\div|$\\
+$|\varepsilon_{t_i}| \leq 2i |\varepsilon_x| + (2i - 1 + i- 1) |\varepsilon_*| + i |\varepsilon_j| +
+|\varepsilon_\div|$\\
+$|\varepsilon_{t_i}| \leq 2i |\varepsilon_x| + (3i- 2) |\varepsilon_*| + i |\varepsilon_j| +
+|\varepsilon_\div|$
+\end{center}
+
+Ahora vamos a utilizar el siguiente teorema\footnote{Ver referencias en sección \ref{referencias}}:\\
+\textit{Suppose that the floating numbers in a machine have base $\beta$ and a mantissa with $t$ digits.
+(The binary digit witch gives the sign of the number is not counted.) Then, every real number in the floating-point range of the machine can be represented with a relative error which does not exceed the machine unit (\textbf{round-off unit}) $u$ which is defined by:}
+
+
+\begin{equation*}
+u = 
+\left\lbrace
+\begin{array}{1}
+	\frac{1}{2} * \beta^{1-t} \hspace{1cm} \text{if rounding is used,}\\
+    \beta^{1-t} \hspace{1cm} \text{if chopping is used.}\\
+\end{array}
+\right
+\end{equation*}
+
+Luego, como todos los números reales pueden ser representados con $t$ dígitos
+de mantisa con un error relativo que no supera el error de truncamiento, entonces
+
+\begin{center}
+$|\varepsilon_l| \leq \beta^{1-t}$ 
+\end{center}
+
+Donde $\beta = 2$ porque $\beta$ representa la base de nuestra máquina (binaria), $l$ representa cualquier valor, ya sea
+una operacion ($*, \div$) o una variable ($x, j$).
+
+Luego la funcion de $\varepsilon_{t_i}$ al reemplazar $|\varepsilon_l|$ por $\beta^{1-t}$ y $\beta$ por $2$, queda acotada por:
+
+\begin{center}
+$|\varepsilon_{t_i}| \leq 2i *|\varepsilon_x| + (3i- 2) * |\varepsilon_*| + i * |\varepsilon_j| +
+|\varepsilon_\div|$\\
+$|\varepsilon_{t_i}| \leq 2i * 2^{1-t}  + (3i- 2) * 2^{1-t} + i * 2^{1-t} + 2^{1-t}$\\
+$|\varepsilon_{t_i}| \leq (2^{1-t}) * (2i  + 3i - 2 + i + 1)$\\
+$|\varepsilon_{t_i}| \leq (2^{1-t}) * (6i - 1)$
+\end{center}
+
+\subsection{Análisis Empírico}
+
+\subsubsection{Cálculo del coseno}
+
+En primer lugar se buscó implementar la ecuación de McLaurin tal como nos venía dada en el enunciado. Analizando más profundamente, notamos que para poder propagar los errores de la misma manera que lo habíamos hecho en el análisis teórico, debíamos asegurarnos que las funciones se calcularan de la misma manera, por lo tanto, no podíamos recurrir a la función $pow$ de $Math.h$ sino que debíamos programar la función nosotros mismos. Por eso, primero programamos las funciones auxiliares potencia y factorial, que en el primer caso toman un double y un int e multiplica al double contra sí mismo tantas veces como dice el int; en la segunda, se inicializa dos variables en 1 y se incrementa una hasta llegar al parámetro mientras se multiplica a esa misma sobre la otra en sucesivas iteraciones.
+
+Hecho esto, se decidió que la función main tomaría dos parámetros que serían pasados por linea de comandos como argumentos del programa, el número a evaluar y la cantidad de términos sobre los que se iba a hacerlo. El programa entonces iteraría sobre la cantidad de términos, sumando el resultado del $t_i$ a un acumulado que al terminar la iteración daría el resultado de la función.
+
+Dado que la sumatoria alterna entre términos positivos y negativos, era preciso alternar entre iteración e iteración un booleano que decidiera si se sumaba o se restaba, para eso declaramos la variable signo, y en cada iteración se pregunta su valor y se entra a una u otra rama del if dependiendo de ésta, para sumar o restar según corresponda.
+
+Para mostrar el resultado, pensamos en hacerlo de una manera que sea fácil de mostrar en una tabla pero que a su vez fuera precisa para percibir aún las diferencias más chicas. Notamos que si queríamos imprimir por pantalla con $cout$, la precisión por default que se imprime no era la más adecuada, por lo tanto recurrimos a la función $setprecision$ en la que seteamos al principio de la ejecución un número arbitrariamente alto para no perder datos en la impresión. 
+
+Hecho esto, imprimimos en pantalla, separados por comas, el número a evaluar, la cantidad de términos usados, el resultado de la función y el resultado de evaluar $\cos (x)$ con $Math.h$ a manera de comparación.
+
+Para el análisis decidimos hacer dos gráficos que ilustran el comportamiento observado. Uno, que graficara los $x$ y $f(x)$ obtenidos para las diferentes cantidades de términos y también para la curva  $\cos (x)$, en el rango de valores entre 0 y 3.14, a intervalos de 0.1. Esto nos permite observar qué tanto difiere cada función evaluada sobre $n$ términos contra la función teórica,
+
+En segundo lugar, decidimos tomar una curva lo suficientemente "precisa", para comparar cómo se comportaba contra la curva teórica en un rango no tan acotado. Para esto, elegimos calcular 10 términos de la serie desde -10 a 10, con intervalos de 0.5, así podíamos observar si seguían o no una curva parecida.
+
+\subsubsection{Mantisa variable}
+
+Hecho esto, pasamos a considerar cuánto los valores diferían del resultado empírico del coseno dado por $Math.h$ si modificábamos la estructura del $double$ para poder modificar el tamaño de la mantisa por parámetro. Para esto, recurrimos a una máscara, al recibir el tamaño de la mantisa deseado, se crean dos $int$ que los populamos de la cantidad de unos que va a tener la mantisa, para poder hacer un $AND$ con los resultados que se obtengan y así de esa manera filtrar los valores que no queremos que aparezcan por estar afuera de la mantisa deseada.
+
+La manera que encontramos de crear la máscara fue recurrir a dos $int$, uno va a funcionar como la parte baja de la máscara y otro como la parte alta; ambos son inicializados como 0xFFFFFFFF, o sea, como si no hubiera máscara, ya que vamos a ir shifteando ceros. Al recibir como parámetro el tamaño de la mantisa deseado, calculamos cuántos shifts se requerirán (sabiendo que el tamaño máximo de la mantisa es 52), y luego procedemos a shiftear, primero la parte baja, si necesitamos hacer más de 32 shifts, lo hacemos con la parte alta luego.
+
+Una vez creada la máscara, tenemos la función $domask$ que filtra el número para que tenga la mantisa deseada; esta función debe ser llamada cada vez que se hace una operación sobre dicho numero para poder truncarlo (para poder hacerlo en algunas secciones del código recurrimos a variables temporarias para almacenar los resultados parciales) y así hacer que se comporte como si la mantisa tuviera sólo la cantidad de dígitos deseada en lugar de 52.
+
+El resultado fue impreso por pantalla de la misma manera que con el programa anterior, seteando la precisión a un valor fijo arbitrariamente alto, pasra luego imprimir en pantalla, separados por comas, el número a evaluar, la cantidad de términos usados, el tamaño de la mantisa, el resultado de la función y el resultado de evaluar $\cos (x)$ con $Math.h$ a manera de comparación
+
+Para realizar el análisis, decidimos usar un número de términos de la serie fijo, que sería 10, para poder trabajar con una sola variable. De esta manera, calculamos los valores obtenidos para la serie con mantisas variables yendo desde 2 a 52 de 5 en 5, y tomando como parámetro $x$ valores desde 0 hasta 3.14 en intervalos de 0.1 y luego seleccionamos las curvas que nos parecían más significativas.
