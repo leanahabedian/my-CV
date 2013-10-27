@@ -1,0 +1,58 @@
+\begin{frame}[plain]
+\frametitle{Definciones}
+\begin{enumerate}
+   \item \underline{Máquina}: es automata definido por una tupla $P = (Q,\Sigma_c,\delta,q_0)$ donde 
+   \begin{itemize}
+      \item $Q$ es un conjunto finito de estados, 
+      \item $\Sigma_c$ es un conjunto de comandos del controlador,
+      \item $\delta$ : $Q$ $x$ $\Sigma_c$ $\rightarrow$ $2^Q$
+      \item (cabe destacar que este automata es no deterministico ya que un comando puede ir de un estado a varios estados distintos)
+   \end{itemize}
+\vspace{3 mm}
+   \item \underline{Controlador}: un controlador (estrategia) para una máquina especifica $P = (Q,\Sigma_c,\delta,q_0)$ es una funcion $C$ : $Q^+$ $\rightarrow$ $\Sigma_c$. Un controlador simple es un controlador que puede ser escrito como una funcion $C$ : $Q$ $\rightarrow$ $\Sigma_c$ (para cada $q \in Q, w, w' \in Q^*, C(wq) = C(w'q)$)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Definciones}
+\begin{enumerate}
+   \setcounter{enumi}{2}
+   \item \underline{Trayectoria}: Sea $P$ una máquina y sea $C$ : $Q^+$ $\rightarrow$ $\Sigma_c$ un controlador. Una secuencia infinita de estados $\alpha$ : $q[0], q[1] ...$ donde $q[0] = q_0$ es una trayectoria de $P$ si
+   \begin{equation}
+      q[i+1] \in \bigcup_{\sigma \in \Sigma_c} \delta(q[i],\sigma)
+   \end{equation}
+\vspace{3 mm}
+   \item \underline{C-Trayectoria}: si $q[i+1] \in \delta(q[i], C(\alpha[0..i]))$ $\forall$ $i$ $\geq$ $0$.
+\vspace{3 mm}
+   \item Llamaremos $L(P)$ al conjunto de trayectorias y $L_c(P)$ al conjunto de C-trayectorias.
+\vspace{3 mm}
+   \item Como detalle, vale aclarar que una C-trayectoria es una trayectoria, por lo tanto: $L_c(P) \subseteq L(P)$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Definiciones}
+\begin{enumerate}
+   \setcounter{enumi}{6}
+   \item Por cada trayectoria infinita $\alpha \in L(P)$, definimos $Vis(\alpha)$ como el conjunto de todos los estados que aparecen en $\alpha$
+\vspace{3 mm}
+   \item Por cada trayectoria infinita $\alpha \in L(P)$, definimos $Inf(\alpha)$ como el conjunto de todos los estados que aparecen en $\alpha$ infinitamente muchas veces.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Definiciones}
+Nos queda ver a que llamaremos un buen funcionamiento de la maquina, es decir, que trayectoria aceptaremos y cuales no.
+\begin{enumerate}
+   \setcounter{enumi}{8}
+   \item \underline{Condicion de aceptación}: Sea $P = (Q,\Sigma_c,\delta,q_0)$ una máquina. Una condicion de aceptación para $P$ es:
+   \begin{equation}
+      \Omega \in \{(F,\Diamond),(F,\square),(F,\Diamond\square),(F,\square\Diamond),(\mathcal{F},\mathcal{R}_{n})\}
+   \end{equation}
+   donde $\mathcal{F} = \{(F_i,G_i)\}^{n}_{i=1}$ y $F$, $F_i$ y $G_i$ son subconjuntos de $Q$ referidos como buenos estados.\\
+\end{enumerate}
+   El conjunto de secuencias de $P$ que son aceptadas segun $\Omega$ se definen de la siguiente manera:\\
+   TABLA
+
+\end{frame}
+
