@@ -12,7 +12,10 @@
 \usepackage{datetime}
 \usepackage{wrapfig} %Inclusión de gráficos al lado de texto
 \usepackage{multicol} %lista de items de varias columnas
-
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
 \hoffset=-1.2cm
 \textwidth=17cm
