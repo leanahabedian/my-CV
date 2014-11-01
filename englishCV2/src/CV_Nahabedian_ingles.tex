@@ -1,34 +1,13 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% "ModernCV" CV and Cover Letter
-% LaTeX Template
-% Version 1.11 (19/6/14)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Xavier Danaux (xdanaux@gmail.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Important note:
-% This template requires the moderncv.cls and .sty files to be in the same 
-% directory as this .tex file. These files provide the resume style and themes 
-% used for structuring the document.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[12pt,a4paper,roman]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+\documentclass[11pt,a4paper,roman]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
 
-\moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\moderncvstyle % CV theme
+\moderncvcolor % load the moderncvcolor.sty
 
-\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 
 \usepackage[scale=0.75]{geometry} % Reduce document margins
 %\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
@@ -38,20 +17,20 @@
 %	NAME AND CONTACT INFORMATION SECTION
 %----------------------------------------------------------------------------------------
 
-\firstname{John} % Your first name
-\familyname{Smith} % Your last name
+\firstname{Leandro Ezequiel} % Your first name
+\familyname{Nahabedian} % Your last name
 
 % All information in this block is optional, comment out any lines you don't need
 \title{Curriculum Vitae}
-\address{123 Broadway}{City, State 12345}
-\mobile{(000) 111 1111}
-\phone{(000) 111 1112}
-\fax{(000) 111 1113}
-\email{john@smith.com}
-\homepage{staff.org.edu/~jsmith}{staff.org.edu/$\sim$jsmith} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
-\extrainfo{additional information}
-\photo[70pt][0.4pt]{pictures/picture} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
-\quote{"A witty and playful quotation" - John Smith}
+\address{Pumacahua 422}{Ciudad Autonoma de Buenos Aires, Argentina}
+\mobile{+54 11 3779 5599}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{leanahabedian@gmail.com}
+\homepage{nahabedian.herokuapp.com}{nahabedian.herokuapp.com} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+%\extrainfo{additional information}
+\photo[70pt][0.2pt]{img/Lea.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{"A witty and playful quotation" - John Smith}
 
 %----------------------------------------------------------------------------------------
 
@@ -65,78 +44,105 @@
 
 \section{Education}
 
-\cventry{2011--2012}{Masters of Commerce}{The University of California}{Berkeley}{\textit{GPA -- 8.0}}{First Class Honours}  % Arguments not required can be left empty
-\cventry{2007--2010}{Bachelor of Business Studies}{The University of California}{Berkeley}{\textit{GPA -- 7.5}}{Specialized in Commerce}
+\cventry{2015--}{Ph.D Candidate}{}{}{}{}
+\cventry{2007--2014}{Master in Computer Science}{University of Buenos Aires}{Argentina}{}{}%{\textit{GPA -- 8.0}}{First Class Honours}  % Arguments not required can be left empty
+\cventry{2007--2013}{Bachelor in Computer Science}{University of Buenos Aires}{Argentina}{}{}%{\textit{GPA -- 7.5}}{Specialized in Commerce}
 
 \section{Masters Thesis}
 
-\cvitem{Title}{\emph{Money Is The Root Of All Evil -- Or Is It?}}
-\cvitem{Supervisors}{Professor James Smith \& Associate Professor Jane Smith}
-\cvitem{Description}{This thesis explored the idea that money has been the cause of untold anguish and suffering in the world. I found that it has, in fact, not.}
+\cvitem{Title}{\emph{Hot-Swap: Update at runtime for discrete controller Synthesis}}
+\cvitem{Supervisors}{Professor Nicol\'as D'Ippolito}
+\cvitem{Description}{Continuous operation is a common software-intensive system quality attribute in many application
+domains. Thus, there is a need for sound engineering techniques that can change a system without stopping or disturbing
+its operation in the face of environment and requirements changes.
+\newline{}
+In this thesis, we address the problem dynamic
+controller update when the specification (both environment assumptions and requirements) of the current system change.
+\newline{}
+We present a general solution that not only produces a controller that computes a controller for the new specification
+and handles the transition from one to another but also, unlike existing approaches, forces the current system to a
+state in which such transition can safely occur. Indeed, using controller synthesis we show how to automatically build a
+controller that guarantees both progress towards update and also a safe update.
+}
 
 %----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
+%Jamee	WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Experience}
+\section{Academical Experience}
 
-\subsection{Vocational}
+\cventry{Mar 2014 Jun 2014}{Research Assistant}{National Institute of Informatics}{Tokyo}{Japan}{
+Research in Software engineering in controller synthesis with an approach of self-adaptive software. I develop a new
+technique in the MTSA tool so as to build controllers that allow the change of the environment and ensure new goals
+without rebooting the system.
+\newline{}%\newline{}
+The work done on my thesis begins from this internship that was held in Tokyo, Japan and supervised by Ph.D Nicol\'as
+D'Ippolito and Ph.D Kenji Tei. The tool MTSA was developed in \textsc{java} and you can download it in
+\url{http://sourceforge.net/projects/mtsa}.
+}
 
-\cventry{2012--Present}{1\textsuperscript{st} Year Analyst}{\textsc{Lehman Brothers}}{Los Angeles}{}{Developed spreadsheets for risk analysis on exotic derivatives on a wide array of commodities (ags, oils, precious and base metals), managed blotter and secondary trades on structured notes, liaised with Middle Office, Sales and Structuring for bookkeeping.
-\newline{}\newline{}
-Detailed achievements:
-\begin{itemize}
-\item Learned how to make amazing coffee
-\item Finally determined the reason for \textsc{PC LOAD LETTER}:
-\begin{itemize}
-\item Paper jam
-\item Software issues:
-\begin{itemize}
-\item Word not sending the correct data to printer
-\item Windows trying to print in letter format
-\end{itemize}
-\item Coffee spilled inside printer
-\end{itemize}
-\item Broke the office record for number of kitten pictures in cubicle
-\end{itemize}}
+%===============================================
+
+\section{Teaching Experience}
+
+\cventry{Mar 2009 Nov 2009}{Tutor}{Freelance}{Buenos Aires}{Argentina}{
+I gave tutorials to high school students. Tutorials were of mathematics, physics and English subjects. These students
+attended to special schools to complete their studies.
+}
+
+%===============================================
+
+\section{Industrial Experience}
+
+\cventry{Nov 2012 Mar 2015}{Project Leader / Developer}{National Ministry of Interior}{Argentina}{}{
+I coped with different tasks that requires programming in many languages. Mainly, I used to work with \textsc{python}
+but also I worked with \textsc{java} and \textsc{php}. Usually I worked in back-end.
+\newline{}
+Then, I also work as a Project leader. We had to assign the time that each media outlet gave to each political party for
+their advertising campaign for 2013 and 2015 Argentine elections. Our system also provide a web application that allow the media outlets and the
+political parties to communicate between them, so as to decide which TV spot they will use and when.}
 
 %------------------------------------------------
-
-\cventry{2010--2011}{Summer Intern}{\textsc{Lehman Brothers}}{Los Angeles}{}{Rated "truly distinctive" for Analytical Skills and Teamwork.}
+\cventry{May 2012 Oct 2012}{Python developer}{Core Security Technologies}{Buenos Aires}{Argentina}{
+Company that develops software for analysis of vulnerabilities. My work consist in developing \textsc{python} code to
+build a system that allowed to add, remove or edit tasks in \textsc{unix} crontab file.
+\newline{}
+Another project was to initiate a server in a virtual machine with \textsc{openBSD} to be used as a web server. To
+achieve this goal I had to install all the packages needed to build a web service.
+}
 
 %------------------------------------------------
+\cventry{May 2010 Dic 2010}{ActionScript2/Python developer}{MetroGames}{Buenos Aires}{Argentina}{
+Company that makes video games for social networks. I was one of the developers of a particular game called Fashion
+World. The design patter that we used to implement that game was \textsc{mvc} and the language was
+\textsc{ActionScript2}.
+\newline{}
+Afterwards, I worked with \textsc{python} to make systems to be used within the company. These programs were part of the
+internal infrastructure of the company. For instance, a system that manage the deployment of a project. 
+}
 
-\subsection{Miscellaneous}
+%------------------------------------------------
+\cventry{Feb 2010 May 2010}{Web developer}{Intelligenx}{Buenos Aires}{Argentina}{
+I did an internship for this company where I had two projects.
+\newline{}
+First, I configured an application using \textsc{xpath} and \textsc{regular expressions}. By doing this, the tool fill a
+database with information about stores of different companies.
+\newline{}
+After that, we produce a web page that used the data obtained before so as to provide yellow pages service. We used
+\textsc{java} to create the application. 
+}
 
-\cventry{2008--2009}{Computer Repair Specialist}{Buy More}{Burbank}{}{Worked in the Nerd Herd and helped to solve computer problems by asking customers to turn their computers off and on again.}
 
 %----------------------------------------------------------------------------------------
 %	AWARDS SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Awards}
+\section{Honors \& Awards}
 
-\cvitem{2011}{School of Business Postgraduate Scholarship}
-\cvitem{2010}{Top Achiever Award -- Commerce}
-
-%----------------------------------------------------------------------------------------
-%	COMPUTER SKILLS SECTION
-%----------------------------------------------------------------------------------------
-
-\section{Computer skills}
-
-\cvitem{Basic}{\textsc{java}, Adobe Illustrator}
-\cvitem{Intermediate}{\textsc{python}, \textsc{html}, \LaTeX, OpenOffice, Linux, Microsoft Windows}
-\cvitem{Advanced}{Computer Hardware and Support}
-
-%----------------------------------------------------------------------------------------
-%	COMMUNICATION SKILLS SECTION
-%----------------------------------------------------------------------------------------
-
-\section{Communication Skills}
-
-\cvitem{2010}{Oral Presentation at the California Business Conference}
-\cvitem{2009}{Poster at the Annual Business Conference in Oregon}
+\cventry{Ago 2012 Ago 2014}{ICT Scholarship}{Ministry of Science, Technology and Productive Innovation}{Argentina}{}{
+I got a scholarship for two years awarded by the Ministry of Science and Technology of the Republic of Argentina to
+get the degree in master in computer science. The beneficiaries of this plan were chosen based on the number of test
+taken, the years undertaken in the study and obtained grade point average.}
 
 %----------------------------------------------------------------------------------------
 %	LANGUAGES SECTION
@@ -144,42 +150,19 @@ Detailed achievements:
 
 \section{Languages}
 
-\cvitemwithcomment{English}{Mothertongue}{}
-\cvitemwithcomment{Spanish}{Intermediate}{Conversationally fluent}
-\cvitemwithcomment{Dutch}{Basic}{Basic words and phrases only}
+\cvitemwithcomment{Spanish}{Mothertongue}{}
+\cvitemwithcomment{English}{Bilingual}{First Certificate in English in 2006 with C grade}
 
 %----------------------------------------------------------------------------------------
 %	INTERESTS SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Interests}
+%\section{Interests}
 
-\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+%\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
 
-\cvlistdoubleitem{Piano}{Chess}
-\cvlistdoubleitem{Cooking}{Dancing}
-\cvlistitem{Running}
-
-%----------------------------------------------------------------------------------------
-%	COVER LETTER
-%----------------------------------------------------------------------------------------
-
-% To remove the cover letter, comment out this entire block
-
-\clearpage
-
-\recipient{HR Department}{Corporation\\123 Pleasant Lane\\12345 City, State} % Letter recipient
-\date{\today} % Letter date
-\opening{Dear Sir or Madam,} % Opening greeting
-\closing{Sincerely yours,} % Closing phrase
-\enclosure[Attached]{curriculum vit\ae{}} % List of enclosed documents
-
-\makelettertitle % Print letter title
-
-\lipsum[1-3] % Dummy text
-
-\makeletterclosing % Print letter signature
-
-%----------------------------------------------------------------------------------------
+%\cvlistdoubleitem{Guitar}{Music}
+%\cvlistdoubleitem{Cooking}{Dancing}
+%\cvlistitem{Running}
 
 \end{document}
