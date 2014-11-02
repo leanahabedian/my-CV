@@ -4,6 +4,10 @@
 
 \documentclass[11pt,a4paper,roman]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
 
+%% for enies y tildes
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
 \moderncvstyle % CV theme
 \moderncvcolor % load the moderncvcolor.sty
 
@@ -42,43 +46,45 @@
 %	EDUCATION SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Education}
+\section{Educación}
 
-\cventry{2015--}{Ph.D Candidate}{}{}{}{}
-\cventry{2007--2014}{Master in Computer Science}{University of Buenos Aires}{Argentina}{}{}%{\textit{GPA -- 8.0}}{First Class Honours}  % Arguments not required can be left empty
-\cventry{2007--2013}{Bachelor in Computer Science}{University of Buenos Aires}{Argentina}{}{}%{\textit{GPA -- 7.5}}{Specialized in Commerce}
+\cventry{2015--}{Estudiante de Doctorado en Ciencias de la Computación}{}{}{}{}
+\cventry{2007--2014}{Licenciado en Ciencias de la Computación}{Universidad de Buenos Aires}{Argentina}{}{}%{\textit{GPA -- 8.0}}{First Class Honours}  % Arguments not required can be left empty
+\cventry{2007--2013}{Analista Universitario en Computación}{Universidad de Buenos Aires}{Argentina}{}{}%{\textit{GPA -- 7.5}}{Specialized in }
 
-\section{Masters Thesis}
+\section{Tesis de Licenciatura}
 
-\cvitem{Title}{\emph{Hot-Swap: A technique for generate and update discrete controller Synthesis at runtime}}
-\cvitem{Supervisors}{Professor Nicol\'as D'Ippolito}
-\cvitem{Description}{Continuous operation is a common software-intensive system quality attribute in many application
-domains. Thus, there is a need for sound engineering techniques that can change a system without stopping or disturbing
-its operation in the face of environment and requirements changes.
+\cvitem{Título}{\emph{Hot-Swap: Una técnica para la generación y actualización automática de controladores discretos en
+tiempo de ejecución}}
+\cvitem{Director}{Dr. Nicol\'as D'Ippolito}
+\cvitem{Descripción}{Producir software que opera continuamente es un atributo de calidad muy común y posee muchas
+aplicaciones. Por lo tanto, existe una necesidad de idear técnicas que pueden cambiar un sistema sin frenar o
+interrumpir su ejecución cuando se produce un cambio en el ambiente y/o en los requerimientos.
 \newline{}
-In this thesis, we address the problem dynamic
-controller update when the specification (both environment assumptions and requirements) of the current system change.
+En esta tesis, trabajamos el problema de realizar una actualización de controlador dinámicamente cuando la
+especificación de un sistema cambia (tanto las asunciones del ambiente como los requerimientos).
 \newline{}
-We present a general solution that not only produces a controller that computes a controller for the new specification
-and handles the transition from one to another but also, unlike existing approaches, forces the current system to a
-state in which such transition can safely occur. Indeed, using controller synthesis we show how to automatically build a
-controller that guarantees both progress towards update and also a safe update.
+Presentamos una solución general que, no solo produce un controlador que satisface la nueva especificación y maneja la
+transición de uno al otro, sino que también, a diferencia de los trabajos ya existentes, forzamos al sistema actual a un
+estado, el cual, dicha transición puede ocurrir. A su vez, usando síntesis de controladores mostramos como construir
+automáticamente un controlador que garantiza que la actualización sucederá, y además, que dicha
+actualización será de manera segura.
 }
 
 %----------------------------------------------------------------------------------------
 %Jamee	WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Academical Experience}
+\section{Experiencia Academica}
 
-\cventry{Mar 2014 Jun 2014}{Research Assistant}{National Institute of Informatics}{Tokyo}{Japan}{
-Research in Software engineering in controller synthesis with an approach of self-adaptive software. I develop a new
-technique in the MTSA tool so as to build controllers that allow the change of the environment and ensure new goals
-without rebooting the system.
+\cventry{Mar 2014 Jun 2014}{Investigador asistente}{National Institute of Informatics}{Tokyo}{Japón}{
+Investigación en ingenieria del software en síntesis de controladores con un efoque en software auto-adaptables.
+Desarrollé una nueva técnica en la herramienta MTSA para construir controladores que permiten cambios en el ambiente y
+asegura nuevos objetivos sin detener o interrumpir el sistema.
 \newline{}%\newline{}
-The work done on my thesis begins from this internship that was held in Tokyo, Japan and supervised by Ph.D Nicol\'as
-D'Ippolito and Ph.D Kenji Tei. The tool MTSA was developed in \textsc{java} and you can download it in
-\url{http://sourceforge.net/projects/mtsa}.
+El trabajo realizado en mi tesis de Licenciatura se inicia en esta pasantía que fue llevada a cabo en Tokyo, Japón y
+supervisado por el Dr. Nicolás D'Ippolito y el Dr. Kenji Tei. La herramienta MTSA fue desarrollada en \textsc{java} y
+usted puede bajarlo del siguiente link \url{http://sourceforge.net/projects/mtsa}.
 }
 
 %===============================================
