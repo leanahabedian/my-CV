@@ -107,7 +107,7 @@
     \fancyfoot[c]{%
       \parbox[b]{\footerwidth}{%
         \centering%
-        \color{color2}\addressfont%
+        \color{color0}\addressfont%
         \ifthenelse{\isundefined{\@addressstreet}}{}{\addtofooter[]{\addresssymbol\@addressstreet}%
           \ifthenelse{\equal{\@addresscity}{}}{}{\addtofooter[~--~]{\@addresscity}}\flushfooter\@firstfooterelementtrue\\}% if \addresstreet is defined, \addresscity will always be defined but could be empty
         \ifthenelse{\isundefined{\@mobile}}{}{\addtofooter{\mobilesymbol\@mobile}}%
