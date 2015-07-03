@@ -1,194 +1,189 @@
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
+\documentclass[10pt]{article}
+\usepackage[margin=3cm]{geometry}
 
-\documentclass[11pt,a4paper,roman]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+% HEADER AND FOOTER
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\lhead{Leandro Nahabedian}
+\rhead{Curriculum Vitae}
+\cfoot{Ciudad Autónoma de Buenos Aires - Argentina\\+54 11 3779 5599 - lnahabedian@dc.uba.ar}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+%%
 
-\moderncvstyle % CV theme
-\moderncvcolor % load the moderncvcolor.sty
+\title{\bfseries\Huge Leandro Ezequiel Nahabedian}
+\author{Curriculum Vitae}
+\date{\today}
 
-%\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+% COLUMNS DECLARATION
+\usepackage{array, xcolor}
+\definecolor{lightgray}{gray}{0.8}
+\newcolumntype{L}{>{\raggedleft}p{0.12\textwidth}}
+\newcolumntype{R}{p{0.8\textwidth}}
+\newcommand\VRule{\color{lightgray}\vrule width 0.5pt}
+%%
 
-\usepackage[scale=0.75]{geometry} % Reduce document margins
-%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
-%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+\hyphenation{(CONICET)}
+\hyphenation{Argentina}
 
-%----------------------------------------------------------------------------------------
-%	NAME AND CONTACT INFORMATION SECTION
-%----------------------------------------------------------------------------------------
-
-\firstname{Leandro Ezequiel} % Your first name
-\familyname{Nahabedian} % Your last name
-
-% All information in this block is optional, comment out any lines you don't need
-%\title{Curriculum Vitae}
-\address{Ciudad Autonoma de Buenos Aires}{Argentina}
-\mobile{+54 11 3779 5599}
-%\phone{(000) 111 1112}
-%\fax{(000) 111 1113}
-\email{leanahabedian@gmail.com}
-\homepage{nahabedian.herokuapp.com}{nahabedian.herokuapp.com} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
-%\extrainfo{10--07--1988}
-%\extrainfo{additional information}
-%\photo[70pt][0.2pt]{img/Lea.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
-%\quote{"A witty and playful quotation" - John Smith}
-
-%----------------------------------------------------------------------------------------
 
 \begin{document}
+\maketitle
 
-\makecvtitle % Print the CV title
+\section*{Education}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%----------------------------------------------------------------------------------------
+\begin{tabular}{L!{\VRule}R}
+2015-- & \textbf{Philosophical Doctor Candidate}, \textit{University of Buenos Aires}, Argentina\\
+2007--2014 & \textbf{Master in Computer Science}, \textit{University of Buenos Aires}, Argentina \\ 
+2007--2013 & \textbf{Bachelor in Computer Science}, \textit{University of Buenos Aires}, Argentina \\
+\end{tabular}
 
-\section{Education}
+\subsubsection*{Masters Thesis}
 
-\cventry{2015--}{Ph.D Candidate}{}{}{}{}
-\cventry{2007--2014}{Master in Computer Science}{University of Buenos Aires}{Argentina}{}{}%{\textit{GPA -- 8.0}}{First Class Honours}  % Arguments not required can be left empty
-\cventry{2007--2013}{Bachelor in Computer Science}{University of Buenos Aires}{Argentina}{}{}%{\textit{GPA -- 7.5}}{Specialized in Commerce}
-
-\section{Masters Thesis}
-
-\cvitem{Title}{\emph{Hot-Swap: A technique for generate and update discrete controller Synthesis at runtime}}
-\cvitem{Supervisors}{Professor Nicol\'as D'Ippolito}
-\cvitem{Description}{Continuous operation is a common software-intensive system quality attribute in many application
+\begin{tabular}{L!{\VRule}R}
+Title & \textbf{Hot-Swap: A technique for generate and update discrete controller Synthesis at runtime}\\
+Supervisors &  \textit{Professor Nicol\'as D'Ippolito}\\
+Description & Continuous operation is a common software-intensive system quality attribute in many application
 domains. Thus, there is a need for sound engineering techniques that can change a system without stopping or disturbing
 its operation in the face of environment and requirements changes.
-\newline{}
+
 In this thesis, we address the problem dynamic
 controller update when the specification (both environment assumptions and requirements) of the current system change.
-\newline{}
+
 We present a general solution that not only produces a controller that computes a controller for the new specification
 and handles the transition from one to another but also, unlike existing approaches, forces the current system to a
 state in which such transition can safely occur. Indeed, using controller synthesis we show how to automatically build a
-controller that guarantees both progress towards update and also a safe update.
-}
+controller that guarantees both progress towards update and also a safe update.\\
+\end{tabular}
 
 %----------------------------------------------------------------------------------------
 %Jamee	WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Academical Experience}
+\section*{Academical Experience}
 
-\subsection{Involvement in Projects}
+\subsubsection*{Involvement in Projects}
 
-\cventry{Mar 2014 Jun 2014}{Research Assistant}{National Institute of Informatics}{Tokyo}{Japan}{
-Research in Software engineering in controller synthesis with an approach of self-adaptive software. I develop a new
+\begin{tabular}{L!{\VRule}R}
+Mar 2014 Jun 2014 & \textbf{Research Assistant}, \textit{National Institute of Informatics}, Tokyo, Japan\\
+& \vspace{-0.7cm} Research in Software engineering in controller synthesis with an approach of self-adaptive software. I develop a new
 technique in the MTSA tool so as to build controllers that allow the change of the environment and ensure new goals
 without rebooting the system.
-\newline{}%\newline{}
+
 The work done on my thesis begins from this internship that was held in Tokyo, Japan and supervised by Ph.D Nicol\'as
 D'Ippolito and Ph.D Kenji Tei. The tool MTSA was developed in \textsc{java} and you can download it in
-\url{http://sourceforge.net/projects/mtsa}.
-}
+\url{http://sourceforge.net/projects/mtsa}.\\
+\end{tabular}
 
-\subsection{Human resources training}
+\subsubsection*{Human resources training}
 
-\cventry{Ene 2015 --}{Director of Master Thesis}{Universidad de Buenos Aires}{Argentina}{}{
-Working together with Ivan Pasquini, who is getting involved in controller synthesis problems with partial observability.
-More precisely, we want to achieve goals in an environment with partial information.
-\newline{}
-Our work presents a novelty solution for problems where properties of the environment are not completely known. We direct to explore that environment so as to get only the information needed to solve the problem. This work has many applications in the area of robotics, networks, etc.
-}
-
-\cventry{Mar 2015 --}{Director of Master Thesis}{Universidad de Buenos Aires}{Argentina}{}{
-Working together with Victor Wjugow. He is doing an internship in the National Institute of Informatics, Japan. We are
+\begin{tabular}{L!{\VRule}R}
+Mar 2015 -- & \textbf{Director of Master Thesis}, \textit{Universidad de Buenos Aires}, Argentina\\
+& Working together with Victor Wjugow. He is doing an internship in the National Institute of Informatics, Japan. We are
 developing an extension of the work that I did during my stay in that institute.
-\newline{}
+
 Controllers that can manage updates in different layers are produced by the technique we are working on. This
 controllers can be updated when the environment in which they are running change, the goals to be satisfy are impossible
 to achieve or the system acquire new abilities and it needs to exploit them. How to handle multi-layers updates is a common
-question in the self-adaptation software area.
-}
+question in the self-adaptation software area.\\
+
+%------------------------------------------------
+
+Ene 2015 -- & \textbf{Director of Master Thesis}, \textit{Universidad de Buenos Aires}, Argentina\\
+& Working together with Ivan Pasquini, who is getting involved in controller synthesis problems with partial observability.
+More precisely, we want to achieve goals in an environment with partial information.
+
+Our work presents a novelty solution for problems where properties of the environment are not completely known. We direct to explore that environment so as to get only the information needed to solve the problem. This work has many applications in the area of robotics, networks, etc.\\
+\end{tabular}
+
+
+
 
 
 
 %===============================================
 
-\section{Teaching Experience}
+\section*{Teaching Experience}
 
-\cventry{Mar 2009 Nov 2009}{Tutor}{Freelance}{Buenos Aires}{Argentina}{
-I gave tutorials to high school students. Tutorials were of mathematics, physics and English subjects. These students
-attended to special schools to complete their studies.
-}
+\begin{tabular}{L!{\VRule}R}
+Mar 2009 Nov 2009 & \textbf{Tutor} \textit{Freelance}, Buenos Aires, Argentina\\
+& \vspace{-0.7cm} I gave tutorials to high school students. Tutorials were of mathematics, physics and English subjects. These students
+attended to special schools to complete their studies.\\
+\end{tabular}
 
 %===============================================
 
-\section{Industrial Experience}
+\section*{Industrial Experience}
 
-\cventry{Nov 2012 Apr 2015}{Project Leader / Developer}{National Ministry of Interior}{Argentina}{}{
-I coped with different tasks that requires programming in many languages. Mainly, I used to work with \textsc{python}
+\begin{tabular}{L!{\VRule}R}
+Nov 2012 Apr 2015 & \textbf{Project Leader / Developer}, \textit{National Ministry of Interior}, Argentina\\
+& \vspace{-0.7cm} I coped with different tasks that requires programming in many languages. Mainly, I used to work with \textsc{python}
 but also I worked with \textsc{java} and \textsc{php}. Usually I worked in back-end.
-\newline{}
+
 Then, I also work as a Project leader. We had to assign the time that each media outlet gave to each political party for
 their advertising campaign for 2013 and 2015 Argentine elections. Our system also provide a web application that allow the media outlets and the
-political parties to communicate between them, so as to decide which TV spot they will use and when.}
+political parties to communicate between them, so as to decide which TV spot they will use and when.\\
 
 %------------------------------------------------
-\cventry{May 2012 Oct 2012}{Python developer}{Core Security Technologies}{Buenos Aires}{Argentina}{
-Company that develops software for analysis of vulnerabilities. My work consist in developing \textsc{python} code to
+May 2012 Oct 2012 & \textbf{Python developer}, \textit{Core Security Technologies}, Buenos Aires, Argentina\\
+& \vspace{-0.7cm} Company that develops software for analysis of vulnerabilities. My work consist in developing \textsc{python} code to
 build a system that allowed to add, remove or edit tasks in \textsc{unix} crontab file.
-\newline{}
+
 Another project was to initiate a server in a virtual machine with \textsc{openBSD} to be used as a web server. To
-achieve this goal I had to install all the packages needed to build a web service.
-}
+achieve this goal I had to install all the packages needed to build a web service.\\
+
 
 %------------------------------------------------
-\cventry{May 2010 Dic 2011}{ActionScript2/Python developer}{MetroGames}{Buenos Aires}{Argentina}{
-Company that makes video games for social networks. I was one of the developers of a particular game called Fashion
+May 2010 Dic 2011 & \textbf{ActionScript2/Python developer}, \textit{MetroGames}, Buenos Aires, Argentina\\
+& \vspace{-0.7cm} Company that makes video games for social networks. I was one of the developers of a particular game called Fashion
 World. The design patter that we used to implement that game was \textsc{mvc} and the language was
 \textsc{ActionScript2}.
-\newline{}
+
 Afterwards, I worked with \textsc{python} to make systems to be used within the company. These programs were part of the
-internal infrastructure of the company. For instance, a system that manage the deployment of a project. 
-}
+internal infrastructure of the company. For instance, a system that manage the deployment of a project. \\
+
 
 %------------------------------------------------
-\cventry{Feb 2010 May 2010}{Web developer}{Intelligenx}{Buenos Aires}{Argentina}{
-I did an internship for this company where I had two projects.
-\newline{}
+Feb 2010 May 2010 & \textbf{Web developer}, \textit{Intelligenx}, Buenos Aires, Argentina\\
+& \vspace{-0.7cm} I did an internship for this company where I had two projects.
+
 First, I configured an application using \textsc{xpath} and \textsc{regular expressions}. By doing this, the tool fill a
 database with information about stores of different companies.
-\newline{}
+
 After that, we produce a web page that used the data obtained before so as to provide yellow pages service. We used
-\textsc{java} to create the application. 
-}
+\textsc{java} to create the application. \\
+\end{tabular}
 
 
 %----------------------------------------------------------------------------------------
 %	AWARDS SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Honors \& Awards}
+\section*{Honors \& Awards}
 
-\cventry{May 2015 --}{Ph.D. Scholarship}{Consejo Nacional de Investigaciones Cient\'ificas y T\'ecnicas}{CONICET}{Argentina}{}
+\begin{tabular}{L!{\VRule}R}
+May 2015 -- & \textbf{Ph.D. Scholarship}, \textit{Consejo Nacional de Investigaciones Cient\'ificas y T\'ecnicas (CONICET)}, Argentina\\
 
-\cventry{Ago 2012 Ago 2014}{ICT Scholarship}{Ministry of Science, Technology and Productive Innovation}{Argentina}{}{
-I got a scholarship for two years awarded by the Ministry of Science and Technology of the Republic of Argentina to
+%------------------------------------------------
+
+Ago 2012 Ago 2014 & \textbf{ICT Scholarship}, \texit{Ministry of Science, Technology and Productive Innovation}, Argentina\\
+& I got a scholarship for two years awarded by the Ministry of Science and Technology of the Republic of Argentina to
 get the degree in master in computer science. The beneficiaries of this plan were chosen based on the number of test
-taken, the years undertaken in the study and obtained grade point average.}
+taken, the years undertaken in the study and obtained grade point average.\\
+\end{tabular}
+
 
 %----------------------------------------------------------------------------------------
 %	LANGUAGES SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Languages}
+\section*{Languages}
 
-\cvitemwithcomment{Spanish}{Mothertongue}{}
-\cvitemwithcomment{English}{Bilingual}{First Certificate in English in 2006 with C grade}
-
-%----------------------------------------------------------------------------------------
-%	INTERESTS SECTION
-%----------------------------------------------------------------------------------------
-
-%\section{Interests}
-
-%\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
-
-%\cvlistdoubleitem{Guitar}{Music}
-%\cvlistdoubleitem{Cooking}{Dancing}
-%\cvlistitem{Running}
+\begin{tabular}{L!{\VRule}R}
+{\bf Spanish}&{\bf Mother tongue}\\
+English & Fluent (First Certificate in English 2006)\\
+\end{tabular}
 
 \end{document}
+
+
