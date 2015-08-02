@@ -17,16 +17,18 @@ english:
 	@mv src/CV_Nahabedian_english.pdf .
 	@echo "Done"
 	                      
-docencia: 
+teaching: 
 	@echo "Compiling"
 	@cd src; \
-	TEXINPUTS=./style//:$(TEXINPUTS) pdflatex --interaction batchmode CV_Nahabedian_docencia.tex > /dev/null; \
-	TEXINPUTS=./style//:$(TEXINPUTS) pdflatex --interaction batchmode CV_Nahabedian_docencia.tex > /dev/null; \
+	TEXINPUTS=./style//:$(TEXINPUTS) pdflatex --interaction batchmode CV_Nahabedian_teaching.tex > /dev/null; \
+	TEXINPUTS=./style//:$(TEXINPUTS) pdflatex --interaction batchmode CV_Nahabedian_teaching.tex > /dev/null; \
 	rm -f *.toc *.out *.aux *.log
-	@mv src/CV_Nahabedian_docencia.pdf .
+	@mv src/CV_Nahabedian_teaching.pdf .
 	@echo "Done"
 
 clean:
 	rm -f CV_Nahabedian.pdf 
 	rm -f CV_Nahabedian_english.pdf 
-	rm -f CV_Nahabedian_docencia.pdf 
+	rm -f CV_Nahabedian_teaching.pdf 
+
+all: spanish english teaching
