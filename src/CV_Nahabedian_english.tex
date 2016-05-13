@@ -3,6 +3,7 @@
 
 % HEADER AND FOOTER
 \usepackage{fancyhdr}
+\usepackage{comment}
 \pagestyle{fancyplain}
 \lhead{Leandro Nahabedian}
 \rhead{Curriculum Vitae}
@@ -51,8 +52,8 @@ In this thesis, we address the problem dynamic
 controller update when the specification (both environment assumptions and requirements) of the current system change.
 
 We present a general solution that not only produces a controller that computes a controller for the new specification
-and handles the transition from one to another but also, unlike existing approaches, forces the current system to a
-state in which such transition can safely occur. Indeed, using controller synthesis we show how to automatically build a
+and handles the transition from one to another but also, unlike existing approaches, assures that the system will reach
+a state in which such a transition can correctly occur. Indeed, using controller synthesis we show how to automatically build a
 controller that guarantees both progress towards update and also a safe update.\\
 \end{tabular}
 
