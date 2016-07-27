@@ -1,0 +1,627 @@
+\documentclass{bnmcvdc}
+
+\usepackage[spanish]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage{enumerate}
+\usepackage[newitem,newenum]{paralist}
+\usepackage{url}
+\usepackage{pdfpages}
+
+\newboolean{ingles}
+\setboolean{ingles}{false}
+\newcommand{\bi}[2]{\ifthenelse{\boolean{ingles}}{#1}{#2}}
+
+\renewcommand{\labelitemi}{\rule[2pt]{2.5pt}{2.5pt}}
+\renewcommand{\labelitemii}{\rule[2.5pt]{1.5pt}{1.5pt}}
+\renewcommand{\labelitemiii}{-}
+\renewcommand\labelitemiv{\textperiodcentered}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\inputpath}{src/}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\depto}{COMPUTACI\'ON}
+\newcommand{\condicion}{Concurso }
+%\newcommand{\condicion}{Selecci\'on Interina }
+\newcommand{\cargo}{Asociado}
+\newcommand{\dedicacion}{Exclusiva}
+%\newcommand{\dedicacion}{Semiexclusiva}
+%\newcommand{\dedicacion}{Parcial}
+%\newcommand{\area}{Ingenier\'ia de Software}
+\newcommand{\area}{s/a}
+%\newcommand{\area}{Cs. Exactas y Naturales}
+%\newcommand{\campoinv}{-}
+\newcommand{\campoinv}{}
+\newcommand{\expediente}{505.705/15}%cambiar!!
+\newcommand{\linea}{\rule{14.5cm}{0.2mm}}
+\newcommand{\comment}[1]{}
+\newcommand{\firma}{
+\vfill
+
+\hspace{8cm} \dotfill
+
+\hspace{10.5cm}Firma
+\begin{flushright}
+{\scriptsize $\quad$}
+\end{flushright}
+\newpage}
+\newcommand{\firmb}{
+\vfill
+
+\hspace{8cm} \dotfill
+
+\hspace{10.5cm}Firma
+\begin{flushright}
+{\scriptsize Se anexa una p\'agina a continuaci\'on.  $\mapsto$}
+\end{flushright}
+\newpage}
+\newcommand{\firmc}[1]{
+\vfill
+
+\hspace{8cm} \dotfill
+
+\hspace{10.5cm}Firma
+\begin{flushright}
+{\scriptsize Se anexan #1 p\'aginas a continuaci\'on. $\mapsto$}
+\end{flushright}
+\newpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\oddsidemargin 0.5cm \topmargin -0.7in \textwidth 14.5cm
+\textheight 10in
+\parskip 6pt
+\parindent=0cm
+
+\begin{document}
+
+\fuente
+
+~
+
+\vspace{.5cm}
+
+\begin{center}
+
+{\large \textbf{Leandro Ezequiel Nahabedian}} \\
+
+\bigskip
+
+%Actualizaci\'on de Curriculum Vitae al \today \\
+
+\condicion Expte. Nro. \expediente  \\ % DC
+
+\end{center}
+
+\bigskip
+
+\section*{\espacio Datos Personales}
+
+\begin{itemize}
+\input{\inputpath/datos_pers}
+\end{itemize}
+
+
+\section*{\espacio Posici\'on actual}
+
+\begin{itemize}
+\input{\inputpath/posicion_actual}
+\end{itemize}
+
+\newpage
+
+
+%PAGINA 2
+A.~TITULOS UNIVERSITARIOS OBTENIDOS (indicando Facultad,
+Universidad y fecha que se ha expedido)
+
+\vskip 1cm
+
+\begin{itemize}
+\input{\inputpath/titulos_largo}
+\end{itemize}
+
+
+\newpage
+
+
+%PAGINA 3
+
+B.~ANTECEDENTES DOCENTES E INDOLE DE LAS TAREAS DESARROLLADAS (indicando instituci\'on, per\'iodo de ejercicio y naturaleza de su designaci\'on, lapso y lugar en que fueron realizados)
+
+\subsection*{Universitarios}
+
+\begin{compactitem}
+\input{\inputpath/docencia}
+\end{compactitem}
+
+%\subsection*{\bi{Non-university teaching}{Experiencia docente no
+%universitaria}}
+%\begin{compactitem}
+%\input{\inputpath/docencia_nouni}
+%\end{compactitem}
+
+
+\subsection*{Primarios y secundarios}
+
+\begin{compactitem}
+\input{\inputpath/docencia_sec}
+\end{compactitem}
+
+%\subsection*{Publicaciones relacionadas con la docencia}
+%
+%\begin{compactitem}
+%\input{\inputpath/docencia_libros}
+%\end{compactitem}
+
+
+
+
+\newpage
+%PAGINA 4
+
+C.~ANTECEDENTES CIENT\'IFICOS%, CONSIGNANDO LAS PUBLICACIONES
+%(identificar a los autores, indicar editorial o revista, lugar y
+%fecha de publicaci\'on, volumen, n\'umero y p\'aginas) U OTROS
+%RELACIONADOS CON LA ESPECIALIDAD (indicando lapso y lugar en que
+%fueron realizados).
+
+%   Si se invocasen trabajos in\'editos deber\'a presentar un ejemplar
+%   firmado por el aspirante, el que ser\'a agregado al expediente
+%   del concurso.
+
+%\subsection*{Trabajos publicados o en prensa en revistas internacionales indexadas (ISI)}
+
+%\begin{compactenum}
+%\input{\inputpath/papers_isi}
+%\end{compactenum}
+
+
+%\subsection*{Trabajos publicados o en prensa en revistas regionales con referato internacional}
+
+
+%\subsection*{Trabajos publicados en otras revistas internacionales o regionales con referato}
+%
+%\begin{compactenum}
+%\input{\inputpath/papers_otros}
+%\end{compactenum}
+
+%\subsection*{Cap\'{\i}tulos de libros}
+
+%\begin{compactenum}
+%\input{\inputpath/cap_libros}
+%\end{compactenum}
+
+
+\subsection*{Trabajos publicados en actas de congresos
+internacionales con referato}
+
+%%%%%%%%aclarar que congreso y donde esta el paper completo
+
+
+\begin{compactenum}
+\input{\inputpath/papers_conf}
+\end{compactenum}
+
+
+%\firmb
+
+\subsection*{Posters}
+
+
+\begin{compactenum}
+\input{\inputpath/papers_posters}
+\end{compactenum}
+
+
+%\subsection*{Trabajos enviados para su publicaci\'on}
+
+%\begin{compactenum}
+%\input{\inputpath/papers_submit}
+%\end{compactenum}
+
+
+%\subsection*{Participaci\'on en proyectos de investigaci\'on financiados}
+
+%\textbf{$\quad$ Actuales}
+
+
+%\begin{compactitem}
+%\input{\inputpath/proy_act}
+%\end{compactitem}
+
+%\textbf{$\quad$ Finalizados}
+
+%\begin{compactitem}
+%\input{\inputpath/proy_fin}
+%\end{compactitem}
+
+%\newpage
+\vspace{1cm}
+%
+D.~CURSOS DE ESPECIALIZACI\'ON SEGUIDOS, CONFERENCIAS Y TRABAJOS DE INVESTIGACI\'ON REALIZADOS SEAN ELLOS EDITOS O INEDITOS (indicando lapso y lugar en que fueron realizados).
+
+%{\small Si se invocasen trabajos in\'editos deber\'a presentar un ejemplar firmado por el aspirante, el que \underline{ser\'a agregado} al expediente del concurso.}
+
+
+\subsection*{Charlas dictadas por invitaci\'on o en seminarios}
+
+\begin{compactitem}
+\input{\inputpath/charlas}
+\end{compactitem}
+
+%\pagebreak
+
+\subsection*{Asistencia a cursos, escuelas y congresos}
+
+\begin{compactitem}
+\input{\inputpath/cursos}
+\end{compactitem}
+
+
+%\firmb
+
+
+\vspace{1cm}
+\newpage
+
+E.~1-ACTUACI\'ON EN UNIVERSIDADES E INSTITUTOS NACIONALES, PROVINCIALES Y PRIVADOS REGISTRADOS EN EL PAIS O EN EL EXTERIOR
+
+%\vspace{1cm}
+
+%\subsection*{Cargos de gesti\'on}
+
+%\begin{compactitem}
+%\input{\inputpath/politica}
+%\end{compactitem}
+
+%\newpage
+
+\vspace{1cm}
+
+
+2- CARGOS QUE DESEMPENO O DESEMPENA EN LA ADMINISTRACI\'ON P\'UBLICA O
+EN LA ACTIVIDAD PRIVADA, EN EL PAIS O EN EL EXTRANJERO (indicando
+organismo o entidad, lugar y lapso)
+%
+%
+%%\subsection*{Cargos de investigaci\'on}
+%%
+%%\begin{compactitem}
+%%\input{\inputpath/investigacion}
+%%\end{compactitem}
+%
+%
+\subsection*{Estad\'{\i}as de investigaci\'on en el exterior por invitaci\'on}
+
+\begin{compactitem}
+\input{\inputpath/estadias_ext}
+\end{compactitem}
+
+\subsection*{Becas de investigaci\'on y pasant\'{\i}as}
+
+\begin{compactitem}
+\input{\inputpath/becas}
+\end{compactitem}
+
+
+%\vspace{1cm}
+\newpage
+
+F.~PARTICIPACI\'ON EN CONGRESOS O ACONTECIMIENTOS SIMILARES NACIONALES O INTERNACIONALES
+%(indicando lugar y lapso en que se realizaron y calidad de representaci\'on).
+
+\vspace{.5cm}
+
+\textbf{$\quad$ Internacionales}
+
+\smallskip
+
+\begin{compactitem}
+\input{\inputpath/congresos_int}
+\end{compactitem}
+
+\bigskip
+
+
+
+%\textbf{$\quad$ Regionales}
+%
+%\smallskip
+%
+%\begin{compactitem}
+%\input{\inputpath/congresos_reg}
+%\end{compactitem}
+%
+%\bigskip
+%
+%\textbf{$\quad$ Nacionales}
+%
+%\smallskip
+%
+%\begin{compactitem}
+%\input{\inputpath/congresos_nac}
+%\end{compactitem}
+%
+
+%\pagebreak
+
+\subsection*{Actuaci\'on en comit\'es de reuniones cient\'{\i}ficas}
+
+\begin{compactitem}
+\input{\inputpath/comites}
+\end{compactitem}
+
+%\comment{
+\subsection*{Becas obtenidas para asistir a eventos}
+
+\begin{compactitem}
+\input{\inputpath/becas_congresos}
+\end{compactitem}%}
+
+
+\newpage
+
+G.  FORMAC\'ON DE RECURSOS HUMANOS (indicando becas de instituciones acreditadas, tesinas, tesis, residencias, maestr\'ias, etc.)
+
+%\subsection*{Direcci\'on de Becas de Doctorado en curso}
+%
+%\begin{compactenum}
+%\input{\inputpath/becarios_doc}
+%\end{compactenum}
+%
+%
+%\subsection*{Direcci\'on de Tesis de Doctorado en curso}
+%
+%
+%\begin{compactenum}
+%\input{\inputpath/tesistas_doc}
+%\end{compactenum}
+%
+%
+%\subsection*{Direcci\'on de Tesis de Licenciatura finalizadas}
+%
+%\begin{compactenum}
+%\input{\inputpath/tesistas_lic}
+%\end{compactenum}
+
+\subsection*{Direcci\'on de Tesis de Licenciatura en curso}
+
+\begin{compactenum}
+\input{\inputpath/tesistas_lic_curso}
+\end{compactenum}
+
+\newpage
+
+%\vspace{1cm}
+
+%H.  Sï¿½NTESIS DE LOS APORTES ORIGINALES EFECTUADOS EN EL EJERCICIO DE LA ESPECIALIDAD RESPECTIVA (indicando lapso y lugar en que fueron realizados; no se deben indicar los mencionados en apartados anteriores).
+
+%\newpage
+
+I.  S\'INTESIS DE LA ACTUACI\'ON PROFESIONAL Y/O DE EXTENSI\'ON UNIVERSITARIA (indicando lapso y lugar en que fueron realizados; no se deben indicar los mencionados en apartados anteriores).
+
+%\subsection*{Asistencias t\'ecnicas mediante convenios}
+%
+%
+%\begin{compactitem}
+%\input{\inputpath/consultoria}
+%\end{compactitem}
+
+\subsection*{Trabajos bajo contrato en instituciones y empresas}
+
+\begin{compactenum}
+\input{\inputpath/trabajo_prof}
+\end{compactenum}
+
+\subsection*{Actividades de extensi\'on universitaria}
+
+\begin{compactitem}
+\input{\inputpath/divulgacion}
+\end{compactitem}
+
+\newpage
+J.  OTROS ELEMENTOS DE JUICIO QUE CONSIDERE VALIOSOS %(indicando lapso y lugar en que fueron realizados; no se debe indicar los mencionados en apartados anteriores).
+
+\subsection*{Premios y Reconocimientos}
+
+\textbf{Best Paper Award} \textit{International Symposium on Software Engineering for
+Adaptive and Self-Managing Systems (SEAMS'16)}
+
+%\subsection*{Actuaci\'on como jurado en Tesis de Licenciatura}
+
+
+%\begin{compactitem}
+%\input{\inputpath/jurado_tesis}
+%\end{compactitem}
+
+
+%\subsection*{Actuaci\'on como jurado en concursos docentes}
+
+%\begin{compactitem}
+%\input{\inputpath/jurado_concursos}
+%\end{compactitem}
+
+
+%\subsection*{Referato de art\'{\i}culos cient\'{\i}ficos}
+
+
+%\textbf{$\quad$ Revistas}
+
+%\smallskip
+%\begin{compactitem}
+%\input{\inputpath/referatos_rev}
+%\end{compactitem}
+
+%\bigskip
+
+%\textbf{$\quad$ Congresos}
+
+%\smallskip
+%\begin{compactitem}
+%\input{\inputpath/referatos_con}
+%\end{compactitem}
+
+%\subsection*{Evaluaci\'on de proyectos y becas de investigaci\'on}
+
+%\begin{compactitem}
+%\input{\inputpath/rev_proy}
+%\end{compactitem}
+%
+%
+%\subsection*{Distinciones}
+%
+%
+%\begin{compactitem}
+%\input{\inputpath/distinciones_corto}
+%\end{compactitem}
+
+\subsection*{Idiomas}
+
+\begin{compactitem}
+\item Espa�ol. Nativo
+\item Ingl\'es. B2 (First Certificate in English 2006)
+\end{compactitem}
+
+
+%\newpage K.  1) PLAN DE LABOR DOCENTE QUE DESARROLLAR\'A EN CASO DE
+%OBTENER EL CARGO CONCURSADO:
+%%a.  Para profesores titulares y asociados.
+%%Forma en que desarrollar\'a la ensenanza, sus puntos de vista sobre temas 
+%%b\'asicos de su campo de conocimiento que deben transmitirse a los alumnos; 
+%%la 
+%%importancia relativa y ubicaci\'on de su \'area en el curr\'iculo de la 
+%%carrera.
+%%Medios que propone para mantener actualizada la ensenanza y para llevar a la 
+%%pr\'actica los cambios que sugiere.
+%%b.  Para profesor adjunto.
+%%Sus puntos de vista sobre temas b\'asicos de su campo del conocimiento que 
+%%deben transmitirse a los alumnos; la importancia relativa y ubicaci\'on de su 
+%%\'area en el curr\'{\i}culo de la carrera.
+%%Medios que propone para mantener actualizada la ense\~nanza y para llevar a la pr\'actica los cambios que sugiere.
+%
+%\medskip
+%
+%%%%%%%%%% DC
+%
+%Varios temas del \'area de Ingenier\'ia de Software forman parte de
+%la curr\'icula de Cs. de la Computaci\'on de la ACM, as\'i como de
+%los programas de las carreras de Cs. de la Computaci\'on en
+%universidades de todo el mundo.
+%
+%Dentro de las materias de la Licenciatura en Ciencias de
+%la Computaci\'on de la FCEyN, UBA, ï¿½stos temas se abordan en materias como 
+%Bases de Datos, Ingenier\'ia de Software 1 y 2,
+%Administraci\'on de proyectos informï¿½ticos y An\'lisis de Requerimientos
+%Temporales entre otras.
+%
+%
+%Teniendo en cuenta mi historial docente y siendo egresado del actual plan de 
+%estudios, como Profesor Adjunto en el Departamento de Computaciï¿½n estoy en 
+%condiciones de dictar cualquier materia que el Departamento considere 
+%necesario. 
+%
+%Sin embargo, dado que presente el
+%concurso es espec\'ificamente para dictar la materia Inger\'ia de
+%Software 1, me concentrarï¿½ en dar mi visiï¿½n y propuesta para la misma. 
+%
+%Si bien Ingenier\'ia de Software I incluye hoy en su programa una
+%extensa introducci\'on a la Ingenier\'ia de Software, considero que
+%en la materia hay lugar para presentar tanto los problemas cl\'asicos
+%del area, como tambi\'en un panorama sobre distintas tï¿½cnicas y herramientas 
+%que
+%hacen al estado del arte de la Ingenier\'ia de Software. 
+%Con esto en mente, concetrar\'ia mis esfuerzos en no solo mantener el gran 
+%nivel que la materia tiene hoy, sino en avanzar sobre algunas de estas 
+%tï¿½cnicas y herramientas tienen especial potencial para la interacci\'on
+%cient\'ifico tecnol\'ogica. 
+%Para esto, me propongo profundizar en la
+%materia el uso de t\'ecnicas de an\'alisis, relevamiento y
+%validaci\'on de requerimientos provenientes de la ingenier\'ia de
+%requerimientos, y t\'ecnicas de
+%validaci\'on y verficaci\'on basadas en modelos de comportamiento
+%como por ejemplo Model Checking. Adem\'as presentar\'ia un panorama
+%sobre t\'ecnicas de generaci\'on automï¿½tica de casos de prueba en el marco
+%t\'ecnicas de testing automatizado. 
+%
+%Cabe destacar que los cambios que propongo en la materia estï¿½n 
+%motivados no solo en mi experiencia como investgador en el ï¿½rea de Ingenierï¿½a 
+%de Software, sino tambiï¿½n en mi conocimiento de la materia dado 
+%por mi trabajo como docente en la misma. Los alumnos de la materia son 
+%estudiantes jovenes y en su mayoria trabajadores en la industria del software. 
+%En este contexto, motivarlos a los alumnos a la aplicaciï¿½n de dichas tï¿½cnicas 
+%y herramientas 
+%es clave para 
+%aumentar la adopciï¿½n en la industria de propuestas con tanto potencial como la 
+%generaciï¿½n automï¿½tica de casos de prueba. Todo esto con miras a mejorar la 
+%calidad del software que se produce en el pais y, porque no, incrementalmente 
+%mejorar la posiciï¿½n del pais en cuanto a la industra del software a nivel 
+%mundial. Esto ï¿½ltimo es de 
+%gran 
+%importancia en un 
+%contexto como el argentino en el cual muchos sectores declarados de relavancia 
+%nacional, como por ejemplo AgroTICs, Energï¿½a, y Transporte, podrï¿½an 
+%beneficiarse con la adopciï¿½n de nuevas tï¿½cnicas de elaboraciï¿½n de 
+%requeriminetos, verificaciï¿½n de software, y testing automatizado. 
+%
+%Por ï¿½ltimo, en cuanto a materias optativas, considero muy importante la 
+%ampliaciï¿½n y actualizaciï¿½n de la oferta actual, espcialmente en el ï¿½rea 
+%docente de Teorï¿½a. En particular, desde mi experiencia planeo proponer una 
+%materia 
+%optativa basada en mis temas de investigaciï¿½n, ya sea en tï¿½cnicas de control 
+%automï¿½tico o bien en la aplicaciï¿½n de dichas a la robï¿½tica, ï¿½rea en la cual 
+%estoy trabajando 
+%con un grupo de alumnos del departamento.  
+%
+%
+%
+%%%%%%%%%%%%%%%%
+%%Para las materias optativas propongo utilizar principalmente la
+%%modalidad de seminario, alternando clases teï¿½ricas con exposiciï¿½n
+%%de temas por parte de los alumnos. El objetivo es profundizar en
+%%ciertos problemas de interï¿½s actual, que variar\'{\i}an en cada
+%%cuatrimestre en que se dicte la materia, y poniendo especial
+%%\'enfasis en las preguntas abiertas alrededor de dichos problemas.
+%%Se espera que el seminario despierte el interï¿½s de los alumnos,
+%%dando lugar a nuevas Tesis de Licenciatura y Doctorado en el ï¿½rea
+%%y la incorporaci\'on de los mismos al grupo de investigaci\'on.
+%%
+%%
+%%%completar
+%%
+%%\newpage
+%%
+%%
+%%
+%2) PLAN DE INVESTIGACIï¿½N CIENTï¿½FICA, TECNOLï¿½GICA Y DE EXTENSIï¿½N
+%UNIVERSITARIA QUE EN Lï¿½NEAS GENERALES DESARROLLARï¿½ EN CASO DE
+%OBTENER EL CARGO CONCURSADO.
+%
+%%\medskip
+%
+%\includepdf[thread,pages=-]{plan-trabajo.pdf}
+%%[]
+%
+%\textbf{Colaboradores involucrados en el plan de investigaci\'on}
+%
+%\begin{compactitem}
+%\input{colaboradores}
+%\end{compactitem}
+%
+%\medskip
+%
+%\textbf{Plan de extensiï¿½n}
+%%%%%%%%%%%%
+%
+%Con respecto a la extensi\'on universitaria, planeo continuar
+%colaborando con iniciativas tales como la ``Semana de la
+%Computaci\'on'' o ``Cient\'{\i}ficos por un d\'{\i}a'', programas de
+%interacci\'on con la escuela media que a mi juicio cumplen un
+%importante rol en la divulgaciï¿½n de las tareas de investigaciï¿½n y
+%docencia desarrolladas en el Departamento.
+%
+%
+%%%fin plan de investigacion
+%%
+%%
+%%%\firma
+
+\end{document}

@@ -1,0 +1,495 @@
+\subsection*{Objetivos generales} Mi objetivo general es desarrollar
+técnicas y herramientas asistidas por computadora que ayuden al
+ingeniero a aumentar la calidad en la construcción de aplicaciones,
+proveyéndole resultados de alto valor agregado respecto al esfuerzo
+invertido en el diálogo con estas herramientas. El alcance de mi
+objetivo abarca sistemas reactivos, es decir, sistemas que
+interactúan con su entorno y para los cuales hay requerimientos no
+triviales sobre su comportamiento durante su ejecución en
+contraposición a requerimientos sobre el estado del sistema al
+finalizar su ejecución. Los sistemas reactivos, representan una clase
+de sistemas significativa tanto por su ubicuidad como por las
+funciones críticas que cumplen. Dicha significancia irá en incremento
+con las tendencias como la de hardware multicore, sistemas
+distribuidos integrados por redes de alta capacidad, comoditización
+de capacidad de cómputo y almacenamiento, y sistemas embebidos con
+fronteras difusas entre hardware y software. Desde un punto de vista
+local, este tipo de sistemas son particularmente relevantes en la
+construcción de aplicaciones industriales donde se combinan
+problemáticas de control, de automatización (i.e. robótica), y
+distribución geográfica. Características de sistemas en dominios como
+AgroTICs, Energía, y Transporte por citar algunos dominios declarados
+de relevancia nacional~\cite{libroBlanco}.
+
+
+\subsection*{Objetivos espec\'ificos e hip\'otesis de trabajo} El
+objetivo específico de mi investigación es el desarrollo de técnicas
+y herramientas automáticas que permitan garantizar la corrección
+%funcional
+de sistemas reactivos por construcción (conocido como ``correct by
+construction''). Esto se contrapone con técnicas que permiten
+verificar la corrección
+%funcional
+post-construcción del sistema (conocido como ``build and verify'').
+Este objetivo está alineado con un fuerte empuje de la industria
+denominado ``Model Driven Development'', en donde se apunta a la
+construcción de marcos de modelado de distintos niveles de
+abstracción y técnicas de transformación (probadas correctas con
+antelación) que permitan incrementalmente acercarse a una
+implementación final a partir de refinamientos sucesivos de una
+descripción abstracta. Más específicamente, mi investigación apunta a
+desarrollar técnicas de síntesis de controladores que puedan ser
+incorporadas en un desarrollo basado en modelos. Las técnicas de
+síntesis de controladores construyen de manera automática un modelo
+reactivo que es capaz de lograr ciertos objetivos dados bajo la
+suposición de cierto comportamiento de su ambiente. La síntesis de
+controladores tiene su origen y desarrollo principalmente en el
+contexto de la supervisión de sistemas de eventos discretos y la
+producción de circuitos lógicos para la industria del
+hardware~\cite{ramadge89,Jobstmann07}. Su aplicación a software ha
+sido escasa hasta el momento debido a limitaciones de escala, de
+expresividad y fundamentalmente de integración metodológica.
+
+Durante mi tesis de doctorado he desarrollado diferentes técnicas
+para la síntesis de controladores basados en eventos buscando salvar
+algunas de las mayores dificultades de las técnicas preexistentes.
+Habiendo observado que en Ingeniería de Software las técnicas de
+síntesis (incluidas las nuestras) estaban limitadas a propiedades de
+safety, en~\cite{dippolito10} presenté una primer versión de síntesis
+de controladores que admite propiedades de liveness y que expone las
+implicaciones metodológicas que tal tipo de técnicas requieren. El
+trabajo aprovecha algunos de los avances importantes del área de
+síntesis de controladores~\cite{piterman06} y muestra como la
+adaptación de las técnicas a contextos de Ingeniería de Software es
+no trivial, requiere de técnicas complementarias y un entendimiento
+más profundo de cómo se vincula con el cuerpo de conocimiento
+desarrollado hasta ahora en Ingeniería de Software y de
+Requerimientos~\cite{Jackson95,parnas95,Darimont97,vanLamsweerde00,vanLamsweerde01}.
+En D'Ippolito et al.~\cite{dippolito11b} extendí el
+trabajo~\cite{dippolito10} proveyendo los fundamentos teóricos,
+extendiendo la evaluación basada en casos de estudio ampliamente
+referenciados en la literatura de Ingeniería de Software y la
+implementación para el algoritmo de síntesis. Luego, el
+trabajo~\cite{dippolito11b} ha sido extendido a partir de mi
+experiencia en la aplicación de dicha técnica en el ámbito del
+control de robots para permitir sintetizar controladores para
+ambientes donde actuadores pueden fallar~\cite{dippolito11}. Este
+trabajo resulta particularmente interesante ya que vincula resultados
+de síntesis con la de modelos de fallas caracterizables
+probabilísticamente. Esto es un indicador de que pueden existir
+modelos de falla interesantes desde la perspectiva de software que
+pueden ser aprovechados para el desarrollo de técnicas eficientes, y
+por lo tanto abona nuestra hipótesis de que el estudio conjunto de
+síntesis de controladores e ingeniería de software.
+
+Sin embargo aun quedan hoy una serie de limitaciones que impiden o
+enlentecen la adopción de estas técnicas de síntesis de controladores
+en la industria. En este plan de trabajo describo dos líneas de
+investigación en las cuales planeo desarrollar mi trabajo durante mi
+primer año en el Departamento de Computación, FCEyN, UBA.  El primero
+de ellos constará del desarrollo de técnicas de síntesis de
+controladores que permitan su utilización en el contexto de los
+métodos iterativos e incrementales a los cuales la ingeniería de
+software se ha volcado en los últimos años. El segundo es el de
+generar técnicas de síntesis que no sólo permitan predicar sobre
+objetivos de comportamiento sino que además sea posible dar de forma
+explícita objetivos de preferencia, en términos de van
+Lamsweerde~\cite{Lamsweerde09} objetivos blandos.
+
+\section*{Antecedentes}
+Sistemas reactivos pueden encontrarse en una variedad creciente de campos de
+aplicación como la industria electrónica, el control, la industria
+aeroespacial, el equipamiento médico, los juegos en computadora y red, las
+aplicaciones embebidas en redes sociales digitales, los agroTICS, etc.  Se
+trata de sistemas embebidos en una infraestructura y una red de actores
+sociales compleja donde las fallas pueden generar pérdidas importantes en
+términos de  vidas humanas o grandes perjuicios materiales.
+Desafortunadamente, las características concurrentes y distribuidas de estas
+aplicaciones hacen que las fallas que se buscan evitar sean suficientemente
+sutiles que un tratamiento de calidad orientado solamente a proceso resulta
+insuficiente. Se requiere de técnicas de desarrollo, validación y
+verificación sofisticadas como para tener mayor confianza en el desarrollo
+correcto de estas aplicaciones tanto para lograr el diseño adecuado como
+también la detección y corrección de errores. De las técnicas de la
+ingeniería de software que apuntan a aumentar la confianza en la calidad del
+producto siendo desarrollado, la que se destaca de manera singular en
+términos de su aceptación y aplicación en la industria del software, es el
+testing.
+
+El testing, de la manera que es practicado hoy en día, tiene severas
+limitaciones en el dominio de los sistemas reactivos. Las características
+distribuidas y concurrentes de dichos sistemas complican el control de la
+ejecución de tests, la reproducibilidad de las fallas encontradas y además,
+por la explosión combinatoria de ejecuciones posibles, reducen la posibilidad
+de lograr coberturas significativas. Además, el testing es actualmente una
+actividad intensiva en labor humana lo cual se transforma en un problema para
+la industria local. El desarrollo de técnicas y herramientas asistidas por
+computadora (que necesariamente se apoyan en modelos formales, y por lo tanto
+tratables automáticamente) que enfoquen la calidad del producto siendo
+desarrollado puede potenciar la capacidad productiva de una fuerza laboral
+pequeña. El impacto de dichas técnicas fortalecería la capacidad de
+construcción de sistemas complejos de alta calidad a menor costo y con menos
+recursos humanos (pero de mayor especialización). De las dos estrategias de
+construcción mencionadas anteriormente (``build and verify'' y ``correct by
+construction''), creemos que la de corrección por construcción es
+particularmente relevante hoy en día y particularmente en el contexto de
+desarrollo de aplicaciones (a diferencia de software de base) que es el foco
+(y probablemente el futuro) de la industria de software local. La visión
+esbozada en el término ``Model Driven Development (MDD)'' donde se pregona un
+enfoque que plantea una transformación de la construcción del software ha
+sido incorporada en ciertos dominios industriales como ser la industria
+automotriz donde han desarrollado la infraestructura (plataformas de software
+y técnicas de transformación) específicas a ese dominio. Este es un camino
+probable para muchos otros dominios de aplicación ya que la variedad de
+plataformas de software (en la forma de middlewares, COTS, APIs, frameworks,
+etc) que cubren distintos niveles de abstracción y distintas tecnologías de
+comunicación, cómputo y control va en aumento. Los enfoques de MDD tienden a
+ser pesados en el sentido de requerir una formalización completa,
+transformaciones de punta a punta y un alto involucramiento de especialistas
+en la prueba de correctitud. El desarrollo de técnicas más ``lightweight'' y
+automatizadas permitiría incorporar técnicas de corrección por construcción
+por parte de empresas chicas y medianas que se están desarrollando en la
+Argentina.
+
+La síntesis de controladores tuvo sus orígenes en el contexto de los sistemas
+de transición discretos~\cite{ramadge89,Pnueli89}. Debido a la alta
+complejidad computacional de las soluciones para el problema general de
+síntesis, este fue considerado intratable en la práctica y esto hizo que su
+adopción en la industria fuera muy baja. Luego se vio que era posible, para
+algunos problemas más específicos, producir controladores con complejidad
+computacional razonable~\cite{maler95,asarin98,alur04,piterman06}.
+Lamentablemente, la reducción en la complejidad computacional del problema
+redunda en un poder expresivo muy limitado, y nuevamente la aplicación de
+síntesis en la industria fue circunscripta a problemas muy específicos.
+Afortunadamente, existen hoy en día algoritmos de síntesis de controladores
+que permiten aplicar estas técnicas con un balance muy positivo entre
+complejidad y expresividad respecto del tipo de problemas que pueden
+abordarse~\cite{piterman06}. Estas nuevas técnicas han sido aplicadas con
+éxito en diferentes dominios como por ejemplo, sistemas
+autónomos~\cite{Kress-GazitFP07,ConnerKCRP07}, síntesis automática de
+circuitos electrónicos~\cite{Bloem:2007:SCR:1314705.1314862}, arquitecturas
+de software auto configurables \cite{sykes08} y a la composición automática
+de web-services~\cite{Kazhamiakin04,Inverardi07}.
+
+\section*{Antecedentes} Sistemas reactivos pueden encontrarse en una
+variedad creciente de campos de aplicación como la industria
+electrónica, el control, la industria aeroespacial, el equipamiento
+médico, los juegos en computadora y red, las aplicaciones embebidas
+en redes sociales digitales, los agroTICS, etc.  Se trata de sistemas
+embebidos en una infraestructura y una red de actores sociales
+compleja donde las fallas pueden generar pérdidas importantes en
+términos de  vidas humanas o grandes perjuicios materiales.
+Desafortunadamente, las características concurrentes y distribuidas
+de estas aplicaciones hacen que las fallas que se buscan evitar sean
+suficientemente sutiles que un tratamiento de calidad orientado
+solamente a proceso resulta insuficiente. Se requiere de técnicas de
+desarrollo, validación y verificación sofisticadas como para tener
+mayor confianza en el desarrollo correcto de estas aplicaciones tanto
+para lograr el diseño adecuado como también la detección y corrección
+de errores. De las técnicas de la ingeniería de software que apuntan
+a aumentar la confianza en la calidad del producto siendo
+desarrollado, la que se destaca de manera singular en términos de su
+aceptación y aplicación en la industria del software, es el testing.
+
+El testing, de la manera que es practicado hoy en día, tiene severas
+limitaciones en el dominio de los sistemas reactivos. Las
+características distribuidas y concurrentes de dichos sistemas
+complican el control de la ejecución de tests, la reproducibilidad de
+las fallas encontradas y además, por la explosión combinatoria de
+ejecuciones posibles, reducen la posibilidad de lograr coberturas
+significativas. Además, el testing es actualmente una actividad
+intensiva en labor humana lo cual se transforma en un problema para
+la industria local. El desarrollo de técnicas y herramientas
+asistidas por computadora (que necesariamente se apoyan en modelos
+formales, y por lo tanto tratables automáticamente) que enfoquen la
+calidad del producto siendo desarrollado puede potenciar la capacidad
+productiva de una fuerza laboral pequeña. El impacto de dichas
+técnicas fortalecería la capacidad de construcción de sistemas
+complejos de alta calidad a menor costo y con menos recursos humanos
+(pero de mayor especialización). De las dos estrategias de
+construcción mencionadas anteriormente (``build and verify'' y
+``correct by construction''), creemos que la de corrección por
+construcción es particularmente relevante hoy en día y
+particularmente en el contexto de desarrollo de aplicaciones (a
+diferencia de software de base) que es el foco (y probablemente el
+futuro) de la industria de software local. La visión esbozada en el
+término ``Model Driven Development (MDD)'' donde se pregona un
+enfoque que plantea una transformación de la construcción del
+software ha sido incorporada en ciertos dominios industriales como
+ser la industria automotriz donde han desarrollado la infraestructura
+(plataformas de software y técnicas de transformación) específicas a
+ese dominio. Este es un camino probable para muchos otros dominios de
+aplicación ya que la variedad de plataformas de software (en la forma
+de middlewares, COTS, APIs, frameworks, etc) que cubren distintos
+niveles de abstracción y distintas tecnologías de comunicación,
+cómputo y control va en aumento. Los enfoques de MDD tienden a ser
+pesados en el sentido de requerir una formalización completa,
+transformaciones de punta a punta y un alto involucramiento de
+especialistas en la prueba de correctitud. El desarrollo de técnicas
+más ``lightweight'' y automatizadas permitiría incorporar técnicas de
+corrección por construcción por parte de empresas chicas y medianas
+que se están desarrollando en la Argentina.
+
+La síntesis de controladores tuvo sus orígenes en el contexto de los
+sistemas de transición discretos~\cite{ramadge89,Pnueli89}. Debido a
+la alta complejidad computacional de las soluciones para el problema
+general de síntesis, este fue considerado intratable en la práctica y
+esto hizo que su adopción en la industria fuera muy baja. Luego se
+vio que era posible, para algunos problemas más específicos, producir
+controladores con complejidad computacional
+razonable~\cite{maler95,asarin98,alur04,piterman06}. Lamentablemente,
+la reducción en la complejidad computacional del problema redunda en
+un poder expresivo muy limitado, y nuevamente la aplicación de
+síntesis en la industria fue circunscripta a problemas muy
+específicos. Afortunadamente, existen hoy en día algoritmos de
+síntesis de controladores que permiten aplicar estas técnicas con un
+balance muy positivo entre complejidad y expresividad respecto del
+tipo de problemas que pueden abordarse~\cite{piterman06}. Estas
+nuevas técnicas han sido aplicadas con éxito en diferentes dominios
+como por ejemplo, sistemas
+autónomos~\cite{Kress-GazitFP07,ConnerKCRP07}, síntesis automática de
+circuitos electrónicos~\cite{Bloem:2007:SCR:1314705.1314862},
+arquitecturas de software auto configurables \cite{sykes08} y a la
+composición automática de
+web-services~\cite{Kazhamiakin04,Inverardi07}.
+
+Mi hipótesis parte de combinar resultados del ámbito de la ingeniería
+de software basada en modelos y la síntesis de controladores, y
+postula que el estudio y desarrollo conjunto de estas áreas puede
+producir técnicas efectivas de corrección por construcción aplicados
+al desarrollo de sistemas de software reactivos. Refinando esta
+hipótesis, veo una serie de características específicas a la
+ingeniería de software que plantean desafíos y oportunidades en el
+desarrollo de nuevas técnicas de síntesis de controladores y su
+aplicación en la Ingeniería de Software. Más específicamente mi
+hipótesis es que es posible aprovechar los avances en síntesis de
+controladores y adaptarlos para lidiar con dos aspectos que son
+particulares a la Ingeniería de Software y que deberán ser resueltos
+para lograr técnicas de corrección por construcción efectivas:
+Especificaciones Parciales, y Objetivos Blandos.
+
+\subsection*{Especificaciones Parciales} La ingeniería de software se
+ha volcado a métodos iterativos e incrementales alejados de la visión
+en cascada que requiere una definición completa de requerimientos
+para luego pasar a definir totalmente el diseño y luego recién pasar
+a la implementación. En este contexto, razonar y avanzar en el
+desarrollo con información parcial es importante. Entonces, es
+necesario desarrollar técnicas de síntesis de controladores discretos
+que puedan funcionar en el contexto de especificaciones parciales.
+Estas técnicas deberán poder indicar la existencia o no a problemas
+de control en este contexto, proveer la descripción completa de un
+controlador si hubiera uno que funciona independientemente de cómo se
+resuelven los aspectos aún no especificados, o proveer una
+descripción parcial indicando las características del controlador que
+son derivables a partir de la información disponible al momento.
+
+He trabajado extensivamente en el uso de modelos de comportamiento
+trivaluados como marco semántico para especificaciones parciales. Más
+específicamente, he desarrollado técnicas de construcción,
+composición y análisis de Sistemas de Transición Modales
+(MTS)~\cite{dippolito08,dippolito10b} y las he aplicado en el marco
+de ingeniería de requerimientos y diseño arquitectónico. Los MTS
+además de distinguir entre comportamiento requerido y comportamiento
+prohibido, permiten capturar el comportamiento que aún no ha sido
+clasificado ni como requerido ni como prohibido. Esta clasificación
+trivaluada admite una semántica de conjuntos de Sistemas de
+Transiciones Etiquetados (LTS). Es decir, un MTS es una descripción
+parcial que admite un conjunto de implementaciones posibles donde las
+implementaciones son modeladas con LTS. La problemática de síntesis
+de controladores a partir de una especificación parcial del ambiente
+dada en forma de un MTS puede entonces entenderse como una familia de
+problemas de control tradicionales, un problema para cada LTS que
+implementa al MTS. Esta enunciación del problema para MTS implica que
+el resultado de la resolución de un problema de síntesis puede tener
+diversos resultados. Por el lado de realizabilidad (¿existe un
+controlador que puede lograr los objetivos propuestos dado la
+descripción del entorno?) el resultado puede ser tri-valuado: Puede
+no existir un entorno que satisfaga la especificación parcial (un LTS
+que implementa al MTS) para que los objetivos sean realizables.
+Alternativamente es posible que para todo ambiente que satisfaga la
+especificación parcial, exista un controlador que logre los
+objetivos, o más fuerte aún, que haya un controlador que funciona
+para todos los ambientes posibles. Finalmente es posible que solo
+exista una solución para algunos entornos válidos. Planteado así, el
+problema de realizabilidad tiene un correlato con el de model
+checking de MTS en donde existen técnicas exactas (más caras en
+complejidad) y aproximaciones razonables (con complejidades similares
+a la de model checking de LTS). Esperamos que algunas de las ideas
+utilizadas en el contexto de model checking de MTS puedan ser
+aplicadas a la resolución del problema de realizabilidad. En cuanto a
+la síntesis misma de controladores, el contexto de MTS induce dos
+variantes. La primera es la síntesis de una especificación parcial de
+un controlador. Dicha especificación podría representarse con otro
+MTS y la expectativa sería que toda implementación del MTS sea un
+controlador válido para todos los entornos válido. La otra es la
+síntesis de una especificación completa de un controlador bajo la
+forma de un LTS. Creo que la síntesis de modelos completos de
+controladores podría lograrse mediante la adaptación de formas
+inductivas de model checking de MTS. Es decir, seleccionar el entorno
+más difícil/fácil (el que dificulta/facilita lo más posible el lograr
+el objetivo) y sintetizar un controlador para este caso. Síntesis de
+especificaciones parciales de controladores es un problema más
+desafiante que creemos que podría lograrse (al menos lograr
+soluciones aproximadas) mediante técnicas automáticas de abstracción
+de MTS como las utilizadas en~\cite{dippolito10b}.
+
+\subsection*{Objetivos Blandos} En Ingeniería de Requerimientos se
+reconoce la necesidad de distinguir entre necesidades y preferencias,
+o en términos de van Lamsweerde~\cite{Lamsweerde09}, objetivos de
+comportamiento y objetivos blandos. Los objetivos de comportamiento
+se derivan de las necesidades básicas que deben resolverse. Los
+objetivos blandos dejan abierta la posibilidad de explorar más
+adelante el espacio rico de soluciones que los objetivos de
+comportamiento determinan. Las técnicas que existen para síntesis de
+controladores discretos sólo tratan con objetivos de comportamiento y
+cuando hay condiciones de progreso no hay una única solución. La
+consecuencia el controlador construido podría ser insatisfactorio ya
+que podría haberse elegido otro que además satisfacía algún objetivo
+blando. Creemos que es posible extender técnicas eficientes de
+síntesis de controladores discretos para encontrar controladores que
+no sólo satisfacen los objetivos de comportamiento sino que además
+logran objetivos blandos establecidos por algún mecanismo de
+preferencias. Creemos que el estudio de las ``libertades'' que tienen
+algoritmos existentes permitirá desarrollar en estos puntos
+heurísticas que tiendan a lograr objetivos blandos además de los de
+comportamiento.
+
+En esta línea de trabajo será fundamental identificar clases de
+objetivos blandos que son pasibles de ser tratados en conjunción con
+objetivos de comportamiento para los que existen técnicas de síntesis
+efectivas. En particular, estos requerimientos deberán estar
+limitados a requerimientos funcionales (o requerimientos
+no-funcionales que pueden ser traducidos a una contraparte
+funcional). Basado en mi experiencia en el campo, he identificado
+algunos objetivos blandos preliminares para los que soluciones de
+síntesis serían deseables.
+
+\begin{enumerate}
+  \item Maximización de concurrencia. Es frecuente que la
+      resolución de problemas de control derive en controladores
+      que intentan lograr los distintos objetivos que se plantean
+      de manera secuencial. Sin embargo, para muchos problemas de
+      control, un tratamiento concurrente de los objetivos es más
+      apropiado.
+  \item Minimización de uso de recursos. Distintas alternativas
+      para la satisfacción de objetivos pueden tener costos
+      distintos. Ante la posibilidad de elegir un controlador se
+      prefiere aquel que hace una utilización de recursos más
+      eficiente.
+  \item Priorización de objetivos. Aunque no siempre se requiere
+      un orden estricto para la realización de ciertos objetivos,
+      muchas veces algunos objetivos son más importantes que
+      otros y se espera que un controlador priorice la
+      satisfacción de estos por encima de otros.
+  \item Maximización de objetivos deseables. Ante múltiples
+      objetivos deseables pero no requeridos, una técnica de
+      síntesis que produzca controladores que tienden a
+      satisfacer la mayor cantidad de estos objetivos (además de,
+      por supuesto los objetivos requeridos) sería una
+      herramienta más útil.
+\end{enumerate}
+
+Entiendo que existen múltiples oportunidades para desarrollar
+técnicas de síntesis para objetivos blandos. Una de ellas está
+básicamente vinculadas al estudio de las ``libertades'' que tienen
+distintos algoritmos de síntesis existentes: Los algoritmos de
+síntesis suelen tener pasos en donde se elige aleatoriamente una
+opción de un conjunto de opciones que se saben ``seguras''. En estos
+pasos hay una oportunidad para hacer un análisis local de cuál de las
+opciones conviene para incrementar la posibilidad de maximizar,
+minimizar o priorizar cierto aspecto de un requerimiento blando. Es
+claro que estas decisiones locales serán heurísticas no-óptimas
+aunque no descartamos la posibilidad de hacer un análisis global
+previo que permita mejores decisiones locales posteriores. Esta línea
+de trabajo tiene un componente de modelado adicional. Habrá que
+estudiar de qué manera deberán especificarse los objetivos blandos
+para que sean intuitivos de escribir pero tratables algorítmicamente
+en el contexto de síntesis. Existe también un posible vínculo con la
+línea de trabajo de familias de controladores. Como conjeturamos en
+la sección precedente que algunas de las posibles soluciones de un
+problema de control pueden caracterizarse por medio de un MTS, éste
+podría ser la punta de partida para un proceso de refinamiento en
+busca de una solución concreta que tenga en cuenta los objetivos
+blandos.
+
+\section*{Actividades y metodología} Mi trabajo de investigación
+apunta a desarrollar resultados teóricos (fundamentos, algoritmos
+probadamente correctos, etc.) y prácticos (la integración en el marco
+de una herramienta usable con potencial de transferencia a la
+industria). En efecto, una de las características de este dominio de
+investigación es la necesidad de complementar los resultados teóricos
+con la validación de su relevancia práctica. La construcción de
+herramientas y su validación mediante su aplicación en casos de
+estudio significativos requieren la utilización de una importante
+base teórica que combina ingeniería de software, lenguajes de
+programación, modelos matemáticos, teoría de autómatas, complejidad y
+algorítmica, etc.  La metodología sobre la que basaré mi trabajo de
+investigación es la siguiente:
+
+\begin{enumerate}
+  \item Detección del problema/aspecto a mejorar, tipo de
+      aplicación sobre la que poner foco. Definición de casos de
+      estudio y parámetros a mejorar (memoria, tiempo,
+      flexibilidad, expresividad, facilidad de uso, etc.).
+      \label{a}
+  \item Estudio de soluciones propuestas en la literatura.
+      \label{b}
+  \item Propuesta de solución novedosa o integradora. Esto
+      incluye solución, sintaxis, semántica, algorítmica, y
+      resultados teóricos que sustentan su corrección y cotas de
+      complejidad.\label{c}
+  \item Desarrollo de un prototipo para analizar la factibilidad
+      del enfoque en la práctica.\label{d}
+  \item Diseño, implementación y testing (con su correspondiente
+      documentación) de un prototipo de la herramienta para
+      analizar casos de estudios.\label{e}
+  \item Análisis y conclusiones sobre los resultados de la
+      ejecución de la herramienta sobre los mismos
+      (experimentación, ``benchmarking'').\label{f}
+  \item Construcción de una versión beta de la herramienta: foco
+      en robustez para las pruebas de usabilidad.\label{g}
+  \item Integración a un tool set.\label{h}
+  \item Validación en la práctica utilizando ejemplos
+      industriales reales/estudio de usabilidad. \label{i}
+  \item Publicación de artículos para difundir los resultados.
+      \label{j}
+\end{enumerate}
+
+\section*{Factibilidad} El Dr. Sebastián Uchitel, director propuesto
+en esta presentación, es un experto reconocido internacionalmente en
+el área de ingeniería del
+software~\cite{Ren:2007:AVP:1247001.1247010}, por lo que no solo
+cuento con apoyo de un experto sino con toda una red de
+investigadores que, dada la exposición internacional del Dr. Uchitel,
+están dispuestos a discutir y colaborar en mis temas de
+investigación.
+
+El trabajo de mi tesis ha sido en colaboración con Nir Piterman, un
+experto en el área síntesis de controladores y teoría de juegos,
+quien es colaborador del grupo de investigación LAFHIS, dirigido por
+el Dr. Sebastián Uchitel, en el cual desarrollaré mis tareas de este
+proyecto. Nir Piterman ha realizado numerosas contribuciones en
+s\'intesis de controladores y teor\'ia de juegos discretos, un
+soporte fundamental de los algoritmos de s\'intesis de controladores.
+En el trabajo ``Faster Solutions of Rabin and Streett
+Games''~\cite{piterman2006faster} Nir realizo importantes
+optimizaciones en la solución de estos juegos que han sido
+fuertemente estudiados en el pasado. En~\cite{piterman06} , Piterman
+propuso un algoritmo revolucionario para resolver síntesis de
+controladores usando como base la generaci\'on de estrategias
+ganadoras para juegos entre dos jugadores con condici\'on de ganada
+de \emph{Street Games}. Cabe notar que el \'ultimo avance en este
+tipo de algoritmos había sido en 1986, veinte años antes del trabajo
+publicado por Piterman. Además, Piterman ha propuesto algoritmos para
+resolver juegos con diferentes condiciones de ganada
+\cite{ChatterjeeHP07a} y un framework para razonar hacerca de
+diferentes juegos que resulta en dependencias complejas entre
+agentes~\cite{ChatterjeeHP07b}. El trabajo de Piterman ha sido
+aplicado en muy variados dominios incluyendo: síntesis de circuitos,
+sistemas autónomos, rob\'otica, diseño de lenguajes de
+especificaci\'on, model checking, abstracción de sistemas
+probabilísticos y biología computacional.
+
+El grupo de investigación LAFHIS, co-dirigido por el Dr. Uchitel,
+cuenta hoy en día con los recursos informáticos necesarios, es decir,
+servidores y computadoras de escritorio.
