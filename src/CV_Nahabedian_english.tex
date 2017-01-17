@@ -1,5 +1,8 @@
 \documentclass[10pt]{article}
 \usepackage[margin=3cm]{geometry}
+\usepackage{url}
+\usepackage{graphicx}
+
 
 % HEADER AND FOOTER
 \usepackage{fancyhdr}
@@ -7,7 +10,8 @@
 \pagestyle{fancyplain}
 \lhead{Leandro Nahabedian}
 \rhead{Curriculum Vitae}
-\cfoot{Ciudad Autónoma de Buenos Aires - Argentina\\+54 11 3779 5599 - lnahabedian@dc.uba.ar}
+\cfoot{Ciudad Aut\'onoma de Buenos Aires - Argentina\\+54 11 3779 5599 - 
+lnahabedian@dc.uba.ar}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 %%
@@ -18,14 +22,15 @@
 
 % COLUMNS DECLARATION
 \usepackage{array, xcolor}
+
 \definecolor{lightgray}{gray}{0.8}
 \newcolumntype{L}{>{\raggedleft}p{0.12\textwidth}}
 \newcolumntype{R}{p{0.8\textwidth}}
 \newcommand\VRule{\color{lightgray}\vrule width 0.5pt}
 %%
 
-\hyphenation{(CONICET)}
-\hyphenation{Argentina}
+%\hyphenation{(CONICET)}
+%\hyphenation{Argentina}
 
 
 \begin{document}
@@ -44,12 +49,12 @@
 \begin{tabular}{L!{\VRule}R}
 Title & \textbf{Hot-Swap: A technique for generate and update discrete controller Synthesis at runtime}\\
 Supervisors &  \textit{Professor Nicol\'as D'Ippolito}\\
-Description & Continuous operation is a common software-intensive system quality attribute in many application
-domains. Thus, there is a need for sound engineering techniques that can change a system without stopping or disturbing
+Description & Continuous operation is a need for sound engineering techniques 
+that can change a system without stopping or disturbing
 its operation in the face of environment and requirements changes.
 
-In this thesis, we address the problem dynamic
-controller update when the specification (both environment assumptions and requirements) of the current system change.
+We address the dynamic controller update problem when the specification (both 
+environment assumptions and requirements) of the current system change.
 
 We present a general solution that not only produces a controller that computes a controller for the new specification
 and handles the transition from one to another but also, unlike existing approaches, assures that the system will reach
@@ -68,14 +73,18 @@ controller that guarantees both progress towards update and also a safe update.\
 \begin{tabular}{L!{\VRule}R}
 SEAMS 2016 & \textbf{L.Nahabedian}, V.Braberman, N.D'Ippolito, S.Honiden, J.Kramer, K.Tei, S.Uchitel. \textbf{Assured and Correct
 Dynamic Controller Update} \textit{in International Symposium on Software Engineering for Adaptive and Self-Managing
-Systems}, Austin, Texas.\\
+Systems}, Austin, Texas - 
+\includegraphics[scale=0.022]{img/medal.png} \textbf{\textit{Best Paper Award}} 
+
+\\
 \end{tabular}
 
 \subsubsection*{Involvement in International Conferences}
 
 \begin{tabular}{L!{\VRule}R}
-ICSE 2016  & \textbf{Student Volunteer}\\
-IJCAI 2015 & \textbf{Student Volunteer}\\
+ICSE'16  & \textbf{Student Volunteer}\\
+SEAMS'16 & \textbf{Author, Student Volunteer}\\
+IJCAI'15 & \textbf{Student Volunteer}\\
 \end{tabular}
 
 
@@ -84,25 +93,30 @@ IJCAI 2015 & \textbf{Student Volunteer}\\
 \begin{tabular}{L!{\VRule}R}
 Mar 2014 Jun 2014 & \textbf{Research Assistant}, \textit{National Institute of Informatics}, Tokyo, Japan\\
 & \vspace{-0.7cm} Research in Software engineering in controller synthesis with an approach of self-adaptive software. I develop a new
-technique in the MTSA tool so as to build controllers that allow the change of the environment and ensure new goals
+technique in the MTSA tool so as to build controllers that allow the change of 
+the environment and ensure new goals
 without rebooting the system.
 
-The work done on my thesis begins from this internship that was held in Tokyo, Japan and supervised by Ph.D Nicol\'as
-D'Ippolito and Ph.D Kenji Tei. The tool MTSA was developed in \textsc{java} and you can download it in
-\url{http://mtsa.dc.uba.ar}.\\
+The work done on my thesis begins from this internship that was held in Tokyo, 
+Japan and supervised by Professors Nicol\'as
+D'Ippolito and Kenji Tei. The tool MTSA was developed in \textsc{java} 
+(\url{http://mtsa.dc.uba.ar}).\\
 \end{tabular}
 
 \subsubsection*{Human Resources Training}
 
 \begin{tabular}{L!{\VRule}R}
 Mar 2015 -- & \textbf{Director of Master Thesis}, \textit{Universidad de Buenos Aires}, Argentina\\
-& Working together with Victor Wjugow. He is doing an internship in the National Institute of Informatics, Japan. We are
-developing an extension of the work that I did during my stay in that institute.
+& Working together with Victor Wjugow. He did an internship in the National 
+Institute of Informatics, Japan. We extend my master thesis work. 
 
-Controllers that can manage updates in different layers are produced by the technique we are working on. This
-controllers can be updated when the environment in which they are running change, the goals to be satisfy are impossible
-to achieve or the system acquire new abilities and it needs to exploit them. How to handle multi-layers updates is a common
-question in the self-adaptation software area.\\
+Controllers that can manage many updates without having a bloating controller 
+are produced by the technique we are working on. These
+updates can be updated when the environment in which they are running change,  
+the goals to be satisfy are impossible
+to achieve or the system acquire new abilities and it needs to exploit them. 
+How to handle many updates without disrupting or stopping the execution is a 
+common question in the self-adaptation software area.\\
 
 %------------------------------------------------
 
@@ -123,7 +137,8 @@ Our work presents a novelty solution for problems where properties of the enviro
 \section*{Teaching Experience}
 
 \begin{tabular}{L!{\VRule}R}
-Ago 2015 - & \textbf{Teaching assitant} \textit{Universidad de Buenos Aires}, Buenos Aires, Argentina\\
+Ago 2015 - & \textbf{Teaching assitant} \textit{Universidad de Buenos Aires}, Buenos 
+Aires, Argentina\\
 & I am giving lecture for Software Engineering course in University of Buenos Aires.\\
 \end{tabular}
 
@@ -132,18 +147,22 @@ Ago 2015 - & \textbf{Teaching assitant} \textit{Universidad de Buenos Aires}, Bu
 \section*{Industrial Experience}
 
 \begin{tabular}{L!{\VRule}R}
-Nov 2012 Apr 2015 & \textbf{Project Leader / Developer}, \textit{National Ministry of Interior}, Argentina\\
-& \vspace{-0.7cm} I coped with different tasks that requires programming in many languages. Mainly, I used to work with \textsc{python}
-but also I worked with \textsc{java} and \textsc{php}. Usually I worked in back-end.
+Nov 2012 Apr 2015 & \textbf{Project Leader / Software engineer}, 
+\textit{National Ministry of Interior}, Argentina\\
+& \vspace{-0.7cm} I coped with different projects that requires programming in 
+many languages. Mainly, I used to work with \textsc{python}
+but also I worked with \textsc{java} and \textsc{php}. 
 
-Then, I also work as a Project leader. We had to assign the time that each media outlet gave to each political party for
+Then, I also work as a Project leader. We developed a system for assigning the 
+time that each media outlet gave to each political party for
 their advertising campaign for 2013 and 2015 Argentine elections. Our system also provide a web application that allow the media outlets and the
 political parties to communicate between them, so as to decide which TV spot they will use and when.\\
 
 %------------------------------------------------
 May 2012 Oct 2012 & \textbf{Python developer}, \textit{Core Security Technologies}, Buenos Aires, Argentina\\
-& \vspace{-0.7cm} Company that develops software for analysis of vulnerabilities. My work consist in developing \textsc{python} code to
-build a system that allowed to add, remove or edit tasks in \textsc{unix} crontab file.
+& \vspace{-0.7cm} Company that develops software for analysis of 
+vulnerabilities. My work consist in developing a system for adding, 
+removing or editing tasks in \textsc{unix} crontab file.
 
 Another project was to initiate a server in a virtual machine with \textsc{openBSD} to be used as a web server. To
 achieve this goal I had to install all the packages needed to build a web service.\\
@@ -155,7 +174,8 @@ May 2010 Dic 2011 & \textbf{ActionScript2/Python developer}, \textit{MetroGames}
 World. The design patter that we used to implement that game was \textsc{mvc} and the language was
 \textsc{ActionScript2}.
 
-Afterwards, I worked with \textsc{python} to make systems to be used within the company. These programs were part of the
+Afterwards, I worked with \textsc{python} to make internal systems to be used 
+within the company. These programs were part of the
 internal infrastructure of the company. For instance, a system that manage the deployment of a project. \\
 
 
@@ -163,11 +183,13 @@ internal infrastructure of the company. For instance, a system that manage the d
 Feb 2010 May 2010 & \textbf{Web developer}, \textit{Intelligenx}, Buenos Aires, Argentina\\
 & \vspace{-0.7cm} I did an internship for this company where I had two projects.
 
-First, I configured an application using \textsc{xpath} and \textsc{regular expressions}. By doing this, the tool fill a
-database with information about stores of different companies.
+Firstly, we produced a tool for web scrapping different pages using
+\textsc{xpath} and \textsc{regular expressions}. By doing this, the tool fills a
+database with information about many companies stores such as address, names, 
+etc.
 
-After that, we produce a web page that used the data obtained before so as to provide yellow pages service. We used
-\textsc{java} to create the application. \\
+After that, we produced a web page that use obtained data for providing yellow 
+pages service. We used \textsc{java/hibernate} to create the application. \\
 \end{tabular}
 
 
@@ -178,12 +200,22 @@ After that, we produce a web page that used the data obtained before so as to pr
 \section*{Honors \& Awards}
 
 \begin{tabular}{L!{\VRule}R}
-May 2015 -- & \textbf{Ph.D. Scholarship}, \textit{Consejo Nacional de Investigaciones Cient\'ificas y T\'ecnicas (CONICET)}, Argentina\\
+May 2016 & \includegraphics[scale=0.022]{img/medal.png}
+\textbf{Best Paper Award} at \textit{International Symposium on 
+Software Engineering for Adaptive and Self-Managing Systems} (SEAMS'16).\\
+
+May 2015 -- & \includegraphics[scale=0.022]{img/medal.png} \hspace{-0.85mm} 
+\textbf{Ph.D. 
+Scholarship}, \textit{Consejo Nacional de 
+Investigaciones Cient\'ificas y T\'ecnicas (CONICET)}, Argentina.\\
 
 %------------------------------------------------
 
-Ago 2012 Ago 2014 & \textbf{ICT Scholarship}, \texit{Ministry of Science, Technology and Productive Innovation}, Argentina\\
-& I got a scholarship for two years awarded by the Ministry of Science and Technology of the Republic of Argentina to
+Ago 2012 Ago 2014 & \includegraphics[scale=0.022]{img/medal.png}
+\textbf{ICT Scholarship}, \textit{Ministry of Science and 
+Technology}, Argentina\\
+& \vspace{-0.7cm} I got a scholarship for two years awarded by the Ministry of 
+Science and Technology of the Republic of Argentina to
 get the degree in master in computer science. The beneficiaries of this plan were chosen based on the number of test
 taken, the years undertaken in the study and obtained grade point average.\\
 \end{tabular}
