@@ -1,18 +1,27 @@
 \documentclass[10pt]{article}
-\usepackage[margin=3cm]{geometry}
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=15mm,
+	right=15mm,
+	top=15mm,
+	foot=10mm
+}
 
 
 % HEADER AND FOOTER
 \usepackage{fancyhdr}
 \usepackage{comment}
+\usepackage{paralist}
 \pagestyle{fancyplain}
-\lhead{Leandro Nahabedian}
-\rhead{Curriculum Vitae}
-\cfoot{Buenos Aires - Argentina\\+54 (911) 2386 2844 - 
-leanahabedian@gmail.com}
+%\lhead{Leandro Nahabedian}
+%\rhead{Curriculum Vitae}
+\cfoot{}%+54 11 2386-2844 - 
+%leanahabedian@gmail.com}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 %%
@@ -25,7 +34,7 @@ leanahabedian@gmail.com}
 \usepackage{array, xcolor}
 
 \definecolor{lightgray}{gray}{0.8}
-\newcolumntype{L}{>{\raggedleft}p{0.12\textwidth}}
+\newcolumntype{L}{>{\raggedleft}p{0.10\textwidth}}
 \newcolumntype{R}{p{0.8\textwidth}}
 \newcommand\VRule{\color{lightgray}\vrule width 0.5pt}
 %%
@@ -35,181 +44,123 @@ leanahabedian@gmail.com}
 
 
 \begin{document}
-\maketitle
 
-\section*{Education}
+\begin{center}
+{\large \textbf{Leandro Ezequiel Nahabedian, PhD.}}\\
+7-oct-1988
+
+\end{center}
+
+\subsubsection*{Profile}
+\small
+
+Chief Teaching assistant with a PhD in Computer Science of Universidad de 
+Buenos Aires and 5+ 
+years experience developing software with an approach of scalability and 
+performance. Led a small team of 3 people pursuing solutions to complex 
+problems. Developed scientific projects from scratch, leading them to 
+publications in journals and conferences with high impact in both, Software 
+Engineering and Business Process Management community. 
+Always looking forward to new challenges and elegant solutions that make impact 
+in software and IT community.
+
+
+\subsubsection*{Professional Experience}
 
 \begin{tabular}{L!{\VRule}R}
-Mar 2015 Mar 2020 & \textbf{Ph.D Candidate in Computer Science}, 
-\textit{University of Buenos Aires}, 
-Argentina 
-
-Advisor: Sebastian Uchitel\\
-Mar 2013 Dec 2014 & \textbf{Master in Computer Science}, \textit{University of 
-Buenos Aires}, Argentina
- 
-Advisor: Nicol\'as D'Ippolito \\ 
-2007 -- 2013 & \textbf{Bachelor in Computer Science}, \textit{University 
-of Buenos Aires}, Argentina \\
-\end{tabular}
-
-\section*{Industrial Experience}
-
-\begin{tabular}{L!{\VRule}R}
-	Nov 2012 Apr 2015 & \textbf{Project Leader / Software engineer}, 
-	\textit{National Ministry of Interior}, Argentina\\
-	& \vspace{-0.7cm} I coped with different projects that requires programming 
-	in 
-	many languages. Mainly, I used \textsc{python} but also I worked with 
-	\textsc{java} and 
-	\textsc{php}. 
-	
-	Then, I also work as a Project leader. We developed a system for assigning 
-	the 
-	time that each media outlet gave to each political party for
-	their advertising campaign for 2013 and 2015 Argentine elections. Our 
-	system also provide a web 
-	application that allows the media outlets and the
-	political parties to communicate between them, so as to decide which TV 
-	spot they will use and 
-	when.\\
-	
+	Nov 2012 Apr 2015 & \textbf{Project Leader / Software Engineer}, 
+	\textit{National Ministry of Interior}\\
+	& \vspace{-0.7cm} 
+	\begin{compactitem}
+\item Developed and owner of 5+ projects. Coached a team of 3 devs.
+\item Designed DB and software for assigning time from each media outlet to 
+each politcal party for their advertising campaign for 2013 and 2015 elections. 
+\item \textsc{Python}, \textsc{JAVA}, \textsc{PHP}, \textsc{PostgreSQL}
+	\end{compactitem}
+	\\
+	\vspace{-2em}
 	%------------------------------------------------
-	May 2012 Oct 2012 & \textbf{Python developer}, \textit{Core Security 
-	Technologies}, Buenos Aires, 
-	Argentina\\
-	& \vspace{-0.7cm} Company that develops software for analysis of 
-	vulnerabilities. My work consist in developing a system for adding, 
-	removing or editing tasks in \textsc{unix} crontab file.
-	
-	Another project was to initiate a server in a virtual machine with 
-	\textsc{openBSD} to be used as a 
-	web server. To
-	achieve this goal I had to install all the packages needed to build a web 
-	service.\\
-	
-	
-	%------------------------------------------------
-	May 2010 Dic 2011 & \textbf{ActionScript2/Python developer}, 
-	\textit{MetroGames}, Buenos Aires, 
-	Argentina\\
-	& \vspace{-0.7cm} Company that makes video games for social networks. I was 
-	one of the developers 
-	of a particular game called Fashion
-	World. The design patter that we used to implement that game was 
-	\textsc{mvc} and the language was
-	\textsc{ActionScript2}.
-	
-	Afterwards, I worked with \textsc{python} to make internal systems to be 
-	used 
-	within the company. These programs were part of the
-	internal infrastructure of the company. For instance, a system that manage 
-	the deployment of a 
-	project. \\
-	
-	
-	%------------------------------------------------
-	Feb 2010 May 2010 & \textbf{Web developer}, \textit{Intelligenx}, Buenos 
-	Aires, Argentina\\
-	& \vspace{-0.7cm} I did an internship for this company where I had two 
-	projects.
-	
-	Firstly, we produced a tool for web scrapping different pages using
-	\textsc{xpath} and \textsc{regular expressions}. By doing this, the tool 
-	fills 
-	a
-	database with information about many companies stores such as address, 
-	names, 
-	etc.
-	
-	After that, we produced a web page that use data for providing yellow 
-	pages service. We used \textsc{java/hibernate} to create the application. \\
-\end{tabular}
+	May 2012 Oct 2012 & \vspace{-2em} \textbf{Python Developer Intern}, 
+	\textit{Core Security 
+		Technologies} \\
+		& \vspace{-0.6cm}
+		\begin{compactitem}
+\item Backend developer / Deployment team.
+\item Developed additional features to set up crontab files from servers.
+\item Initiate an \textsc{openBSD} web server from scratch.
+		\end{compactitem} 
+		\\
+		\vspace{-2em}
+		%------------------------------------------------
+		May 2010 Dic 2011 & \vspace{-2em}\textbf{Python Developer}, 
+		\textit{MetroGames}\\
+		& \vspace{-0.6cm} 
+		\begin{compactitem}
+\item Worked in the deployment team. Developed internal processes to deploy 
+projects.
+		\end{compactitem}
+		\\
+		\vspace{-2em}
+		%------------------------------------------------
+		Feb 2010 May 2010 & \vspace{-2em} \textbf{JAVA Developer}, 
+		\textit{Intelligenx}\\
+		& \vspace{-0.6cm} 
+		\begin{compactitem}
+\item Collaborated in setting up a tool for mining data from the web.
+\item Designed a yellow pages website.
+\item \textsc{xpath}, \textsc{JAVA}, \textsc{hibernate}, \textsc{MVC}.
+		\end{compactitem}
+		\end{tabular}
 
-%===============================================
-
-%\section*{Research and Professional Interests}
-%
-%
-%During my PhD I worked on the problem of dynamic system update:
-%given a system that is running and it is currently satisfying specific 
-%requirements, for 
-%some reason, it must be updated to a new system that must satisfy new 
-%requirements. 
-%Proposed solution allows systems to keep executing while a reconfiguration 
-%takes place which is a 
-%desired attribute for continuous operation systems such as a production cell, 
-%autonomous vehicles, amongst others.
-%In my work I showed how controller synthesis can be used to solve this problem.
-%In addition, with this approach, I made some contributions in the area of 
-%business process 
-%management (BPM) showing improvements in a practical scenario. 
-%BPM are widely used in the industry to organize and manage complex processes 
-%in 
-%large organizations.
-%
-%During my studies I mastered the topics of formal verification of behavioural 
-%models by using model 
-%checking and automated controller synthesis.
-%My research group (\href{https://lafhis.dc.uba.ar}{LaFHIS}) is also very 
-%active in the field of 
-%program analysis and testing and I 
-%got the chance to get some experience on those topic too by taking advanced 
-%courses and 
-%collaborating with other researchers. 
-%For my postdoc studies I am highly interested in program analysis and testing. 
-%I strongly 
-%believe my background both in controller synthesis and program analysis could 
-%be a suitable asset for 
-%contributing in research projects. 
+		%===============================================
 
 
-\section*{Academical Experience}
-
-\subsubsection*{Publications}
+\subsubsection*{Education}
 
 \begin{tabular}{L!{\VRule}R}
-BPM 2019 & \textbf{L. Nahabedian}, V. Braberman, N D'Ippolito, J. Kramer, S. Uchitel.
-\textbf{\textit{Dynamic Reconfiguration of Business Processes}}, in \textit{International 
-Conference on Business Process Management}, Vienna, Austria - Best Student 
-Paper Award Nominee\\
-IEEE-TSE 2018 & \textbf{L. Nahabedian}, V. Braberman, N D'Ippolito, S. Honiden, J. Kramer, K. Tei, 
-S. Uchitel.
-\textbf{\textit{Dynamic Update of Discrete Event Controllers}}, in \textit{IEEE 
-Transactions on Software Engineering}\\
-ICSE 2017 & \textbf{L. Nahabedian}. \textbf{Dynamic Update of Business Process 
-Management}. in \textit{International Conference on Software Engineering - 
-Doctoral Symposium}, Buenos Aires, Argentina.
-\\
-SEAMS 2016 & \textbf{L. Nahabedian}, V. Braberman, N. D'Ippolito, S. Honiden, 
-J. Kramer, K. Tei, S. Uchitel. \textbf{Assured and Correct
-Dynamic Controller Update} in \textit{International Symposium on Software 
-Engineering for Adaptive and Self-Managing
-Systems}, Austin, Texas, USA - \includegraphics[scale=0.022]{../img/medal.png} 
-\textbf{\textit{Best 
-Paper Award}}\\
+	Mar 2015 Mar 2020 & \textbf{Ph.D in Computer Science}, 
+	\textit{Universidad de Buenos Aires}, Argentina
+	
+	Advisor: Sebastian Uchitel
+	
+	\textit{\textbf{Publications:}}
+	\begin{compactitem}
+		\item \textbf{L. Nahabedian}, V. Braberman, N D'Ippolito, J. Kramer, S. 
+		Uchitel.
+		\textbf{\textit{Dynamic Reconfiguration of Business Processes}}, in 
+		\textit{BPM'19}, Vienna, Austria 
+		\includegraphics[scale=0.022]{../img/medal.png}
+		\textbf{Best Student Paper Award Nominee}
+		\item \textbf{L. Nahabedian}, V. Braberman, N D'Ippolito, S. Honiden, 
+		J. 
+		Kramer, K. Tei, 
+		S. Uchitel.
+		\textbf{\textit{Dynamic Update of Discrete Event Controllers}}, in 
+		\textit{IEEE TSE'18} (journal paper)
+		\item \textbf{L. Nahabedian}. \textbf{Dynamic Update of Business 
+		Process
+			Management}. in \textit{ICSE'17}, Buenos Aires, Argentina.
+		\item \textbf{L. Nahabedian}, V. Braberman, N. D'Ippolito, S. Honiden, 
+		J. Kramer, K. Tei, S. Uchitel. \textbf{Assured and Correct
+			Dynamic Controller Update} in \textit{SEAMS'16}, Austin, Texas, 
+			USA. 
+			\includegraphics[scale=0.022]{../img/medal.png}
+		\textbf{Best Paper Award}
+	\end{compactitem}
+	\textit{\textbf{Research Assistant:}}
+	\begin{compactitem}
+\item \textit{IT University of 	Copenhagen}, Denmark (May 2019 -- Jun 2019)
+\item \textit{National Institute of Informatics}, Tokyo, Japan (Mar 2014 -- Jun 
+2014)
+	\end{compactitem}
+	\\
+	Mar 2008 Dec 2014 & \textbf{Master in Computer Science}, 
+	\textit{Universidad de Buenos Aires}, Argentina
+	
+	Advisor: Nicol\'as D'Ippolito \\
 \end{tabular}
 
-\subsubsection*{Research Projects}
 
-\begin{tabular}{L!{\VRule}R}
-Mar 2014 Jun 2014 & \textbf{Research Assistant}, \textit{National Institute of Informatics}, Tokyo, 
-Japan\\
-& \vspace{-0.7cm} I researched in discrete event controller synthesis with an approach of 
-self-adaptive software. I developed a new
-technique in the MTSA tool that builds a controller which allows the change of 
-the environment and it ensures new goals without rebooting the system. \\
-May 2019 Jun 2019 & \textbf{Research Assistant}, \textit{IT University of 
-Copenhagen}, Denmark\\
-& \vspace{-0.7cm} I visited the IT University of Copenhagen to work on 
-Business Process 
-reconfiguration in the 
-context of Dynamic Condition Response Graphs. I had the chance to collaborate 
-with many 
-researchers of the \textit{Computer Science Department} of the University and 
-also of their 
-industry partner \textit{DCR Solutions}.
-\end{tabular}
 
 \subsubsection*{Teaching Experience}
 
@@ -217,77 +168,36 @@ industry partner \textit{DCR Solutions}.
 	Ago 2015 - & \textbf{Chief Teaching Assistant} \textit{Universidad de 
 		Buenos 
 		Aires}, Argentina\\
-	& I am giving lecture for Software Engineering course in University of 
-	Buenos Aires.\\
+	& Software Engineering course at Universidad de Buenos Aires.\\
 \end{tabular}
 
-%\subsubsection*{Participation in International Conferences}
 
-%\begin{tabular}{L!{\VRule}R}
-%BPM'19   & \textbf{Accepted Paper Speaker}\\
-%ICSE'17	 & \textbf{Accepted Paper Speaker, Web Chair}\\
-%ICSE'16  & \textbf{Student Volunteer}\\
-%SEAMS'16 & \textbf{Accepted Paper Speaker, Student Volunteer}\\
-%IJCAI'15 & \textbf{Student Volunteer}\\
-%\end{tabular}
-
-
-%\subsubsection*{Human Resources Training}
+%%----------------------------------------------------------------------------------------
+%%	AWARDS SECTION
+%%----------------------------------------------------------------------------------------
+%
+%\subsubsection*{Honors \& Awards}
 %
 %\begin{tabular}{L!{\VRule}R}
-%Mar 2015 Dec 2018 & \textbf{Advisor of Master Thesis}, \textit{Universidad de 
-%Buenos Aires}, Argentina\\
-%& \vspace{-0.7cm} I directed Victor Wjugow for getting his Master degree.
-% 
-%Controllers that can manage many updates without having a bloating controller 
-%are produced by the presented technique. These
-%updates can be updated when the environment in which they are running change,  
-%the goals to be satisfy are impossible
-%to achieve or the system acquire new abilities and it needs to exploit them. 
-%How to handle many updates without disrupting or stopping the execution is a 
-%common question in the self-adaptation software area.\\
+%May 2016 &  at \textit{International Symposium on 
+%Software Engineering for Adaptive and Self-Managing Systems} (SEAMS'16).\\
+%
+%Apr 2015 Mar 2020 & \includegraphics[scale=0.022]{../img/medal.png} 
+%\hspace{-0.85mm} 
+%\textbf{Ph.D. 
+%Scholarship}, \textit{National Scientific and Technical
+%Research Council (CONICET)}, Argentina.\\
 %
 %%------------------------------------------------
 %
-%Ene 2015 Jun 2017 & \textbf{Advisor of Master Thesis}, \textit{Universidad de 
-%Buenos Aires}, 
-%Argentina\\
-%& \vspace{-0.7cm} I directed Ivan Pasquini for getting his Master degree. 
-%
-%Our work presents a novelty solution for problems where properties of the 
-%environment are not completely known. We direct to explore that environment so 
-%as to get only the information needed to solve the problem. This work has many 
-%applications in the area of robotics, networks, etc.\\
+%Ago 2012 Ago 2014 & \includegraphics[scale=0.022]{../img/medal.png}
+%\textbf{Master ICT Scholarship}, \textit{Ministry of Science and 
+%Technology}, Argentina\\
+%& \vspace{-0.7cm} I got a scholarship for two years awarded by the Ministry of 
+%Science and Technology of the Republic of Argentina to
+%get the degree in master in computer science.\\
 %\end{tabular}
-
-
-%----------------------------------------------------------------------------------------
-%	AWARDS SECTION
-%----------------------------------------------------------------------------------------
-
-\section*{Honors \& Awards}
-
-\begin{tabular}{L!{\VRule}R}
-May 2016 & \includegraphics[scale=0.022]{../img/medal.png}
-\textbf{Best Paper Award} at \textit{International Symposium on 
-Software Engineering for Adaptive and Self-Managing Systems} (SEAMS'16).\\
-
-Apr 2015 Mar 2020 & \includegraphics[scale=0.022]{../img/medal.png} 
-\hspace{-0.85mm} 
-\textbf{Ph.D. 
-Scholarship}, \textit{National Scientific and Technical
-Research Council (CONICET)}, Argentina.\\
-
-%------------------------------------------------
-
-Ago 2012 Ago 2014 & \includegraphics[scale=0.022]{../img/medal.png}
-\textbf{Master ICT Scholarship}, \textit{Ministry of Science and 
-Technology}, Argentina\\
-& \vspace{-0.7cm} I got a scholarship for two years awarded by the Ministry of 
-Science and Technology of the Republic of Argentina to
-get the degree in master in computer science.\\
-\end{tabular}
-%===============================================
+%%===============================================
 
 %----------------------------------------------------------------------------------------
 %	LANGUAGES SECTION
@@ -296,11 +206,10 @@ get the degree in master in computer science.\\
 \vspace{1em}
 \begin{tabular}{ccc}
 \textbf{Programming Languages} & \textbf{Technologies} & \textbf{Languages}\\
-Python, Java, JavaScript, 
- & HTML, CSS, JQuery,
+Python, Java, JavaScript, PHP, HTML, CSS
+ & JQuery, ActionScript, node.js, SQL, 
  & {\bf Spanish}, {\bf English} (FSE 2006) \\
-  PHP, ActionScript, Bash, & node.js, SQL, Hibernate, & \\
-Latex & VirtualBox, SVN, Git, & \\
+  ActionScript, Bash, Latex &  Hibernate, VirtualBox, SVN, Git, & \\
  &  Heroku, UNIX, JUnit & \\
 \end{tabular}
 
